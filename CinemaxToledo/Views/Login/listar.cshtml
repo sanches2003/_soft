@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LoginModel>
+@{
+    ViewData["Title"] = "listar";
+}
+
+<h1>Listar Usuários</h1>
+<br />
+<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+<a href="~/login/cadastro" class="btn btn-info">
+    Novo
+</a>
+
+<br />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Usuário</th>
+            <th scope="col">Senha</th>
+            <th scope="col">Usuário Administrador</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.login</td>
+                <td>@item.senha</td>
+                <td>@item.ativo</td>
+                <td>
+                    <a href="~/Login/prealterar/@item.id" class="btn btn-primary">
+                        Alterar
+                    </a>
+                </td>
+                <td>
+                    <a href="~/Login/excluir/@item.id" class="btn btn-primary">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

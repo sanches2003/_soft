@@ -1,0 +1,167 @@
+﻿@model FilmeModel
+@{
+    ViewData["Title"] = "detalhes";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<br />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/HomeSite/Index">Página Inicial</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.titulo</li>
+    </ol>
+</nav>
+<br />
+<div>
+    <img src="~/Imagens/@Model.imagem" class="rounded float-left col-sm border-primary rounded" style="width: 250px; height: 300px;" />
+    <p class="h2 col-sm"><em><strong>@Model.titulo</strong></em></p>
+    <hr />
+    <p class="text font-weight-light">Sinopse</p>
+    <p class="text-left">@Model.descricao</p>
+</div>
+<br />
+<br />
+<center>
+<div>
+        <img src="~/icons/etiqueta-de-preco.png" style="width: 25px; height: 25px;" /><a class="p-2 col align-self-center"><strong>Categoria: </strong> @Model.categoria.descricao</a>
+        <img src="~/icons/claquete.png" style="width: 25px; height: 25px;" /><a class="p-2 col align-self-center"><strong>Estúdio: </strong>@Model.estudio.nomeEstudio</a>
+    <br />
+        <br />
+        <img src="~/icons/relogio.png" style="width: 25px; height: 25px;" /><a class="p-2 col align-self-center"><strong>Duração: </strong>@Model.duracao</a>
+        <img src="~/icons/estrela.png" style="width: 25px; height: 25px;" /><a class="p-2 col align-self-center"><strong>Elenco: </strong>@Model.atores.nomeAtor</a>
+</div>
+</center>
+<br />
+<br />
+<center>
+    <img width="560" height="315" src="~/imagens/trailer.PNG">
+</center>
+<br />
+<br />
+<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+    <p class="h2 col-sm text-white"><em><strong>Sessões</strong></em></p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <img href="#" class="card-img-center" style="width: 20px; height: 20px;" src="~/icons/pino-de-localizacao (1).png">
+    <a class="navbar-brand form-inline my-2 my-lg-0 text-white" href="#">
+        Presidente Prudente - SP
+        <img href="#" class="card-img-center" style="width: 20px; height: 20px;" src="~/icons/troca (2).png">
+    </a>
+    <div class="collapse navbar-collapse my-2, my-lg-0, mr-sm-0 e my-sm-0 text-align-right" id="navbarNav">
+        <img href="#" class="card-img-center" style="width: 25px; height: 25px;" src="~/icons/agendar.png"><a class="text-white">Confira a Programação Completa</a>
+    </div>
+</nav>
+<br />
+<center>
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <!--<div class="card-header">model.sessao.diaSessao</div>-->
+        <a href="~/Venda/comprarProduto/@Model.id/I"
+           class="btn btn-success">
+            Comprar Entrada Inteira R$@Model.valorInteira
+        </a>
+        <a href="~/Venda/comprarProduto/@Model.id/M"
+           class="btn btn-success">
+            Comprar Meia Entrada: R$@Model.valorMeia
+        </a>
+    <div class="card-body">
+            <p class="card-text"><strong>12/03 Segunda-Feira</strong></p>
+            <button type="button" class="btn btn-dark">12 HR</button>
+            <button type="button" class="btn btn-dark">17 HR</button>
+            <button type="button" class="btn btn-dark">20 HR</button>
+            <br />
+            <br />
+            <p></p>
+            <p class="card-text"><strong>13/03 Terça-Feira</strong></p>
+            <button type="button" class="btn btn-dark">11 HR</button>
+            <button type="button" class="btn btn-dark">16 HR</button>
+            <button type="button" class="btn btn-dark">19 HR</button>
+    </div>
+</div>
+</center>
+<footer style="width:100%" class="text-center text-lg-start bg-dark text-muted">
+
+    <!-- Section: Social media -->
+    <!-- Section: Links  -->
+    <section style="width:100%">
+        <div style="width:100%">
+            <!-- Grid row -->
+            <br />
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Filmes
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">PROGRAMAÇÃO</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">CARTAZ</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">EM BREVE</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">INGRESSOS</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Acessibilidade
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">SOBRE</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">MOVIE READING</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Fidelidade
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">ASSINAR</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">MINHA ASSINATURA</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">SOBRE CINEMAX TOLEDO+</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
+                    <p><i class="fas fa-home me-3"></i> CENTRAL DE ATENDIMENTO </p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        TRABALHE CONOSCO
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i>INGRESSO CORPORATIVO</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright
+        <a class="text-reset fw-bold p-2 bd-highlight" href="https://mdbootstrap.com/">2023 Cinemax Toledo</a>
+        <a class="p-2 bd-highlight">POLÍTICA DE PRIVACIDADE</a>
+        <a class="p-2 bd-highlight">TERMOS DE USO</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->

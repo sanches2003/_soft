@@ -1,0 +1,35 @@
+﻿@model CinemaxToledo.Models.AtoresModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+<h1>Cadastrar Ator</h1>
+<br />
+<form asp-action="salvar" asp-controller="atores"
+      method="post">
+    <div class="row">
+        <div class="col-6 form-group">
+            <label asp-for="id"></label>
+            <input readonly type="text" asp-for="id" class="form-control" />
+            <span asp-validation-for="id" class="alert-danger"></span>
+        </div>
+        <div class="col-6 form-group">
+            <label asp-for="nomeAtor"></label>
+            <input type="text" asp-for="nomeAtor" class="form-control" />
+            <span asp-validation-for="nomeAtor" class="alert-danger"></span>
+        </div>
+        <!--
+        <div class="col-12 form-group">
+            <label asp-for="idAtoresFilme"></label>
+            <select class="form-control" asp-for="idAtoresFilme" asp-items="@ViewBag.listacategorias">
+                <option>Selecione uma categoria.....</option>
+            </select>
+        </div>
+        -->
+        <div class="col-12 form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+        <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+    </div>
+</form>

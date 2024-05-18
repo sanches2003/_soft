@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SessaoModel>
+@{
+    ViewData["Title"] = "listar";
+}
+
+<h1>Listar Sessões Disponíveis</h1>
+<br />
+<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+<script>
+
+    function confirmExclusao(id) {
+        if (confirm("Tem certeza que deseja excluir essa sessão?")) {
+
+            location.href = "/sessao/excluir/" + id;
+
+        }
+    }
+</script>
+
+<a href="~/sessao/cadastro" class="btn btn-info">
+    Novo
+</a>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Dia da Sessão</th>
+            <th scope="col">Hora da Sessão</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Local</th>
+            <th scope="col">Filme</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.diaSessao</td>
+                <td>@item.horaSessao</td>
+                <td>@item.sala</td>
+                <td>@item.local</td>
+                <td>@item.idFilme</td>
+                <td>
+                    <a href="~/sessao/prealterar/@item.id"
+                   class="btn btn-primary">
+                        Alterar
+                    </a>
+                </td>
+                <td>
+                    <a href="#"
+                   class="btn btn-primary" onclick="confirmExclusao(@item.id)">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

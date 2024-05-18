@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EstudioModel>
+@{
+    ViewData["Title"] = "listar";
+}
+
+<h1>Listar Estúdios</h1>
+<br />
+<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+<a href="~/estudio/cadastro" class="btn btn-info">
+    Novo
+</a>
+<br /><br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.nomeEstudio</td>
+                <td>
+                    <a href="~/Estudio/prealterar/@item.id" class="btn btn-primary">
+                        Alterar
+                    </a>
+                </td>
+                <td>
+                    <a href="~/Estudio/excluir/@item.id" class="btn btn-primary">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
