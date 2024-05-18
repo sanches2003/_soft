@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaxToledo.Controllers
 {
-    public class CategoriaController : Controller
+    public class PlataformaController : Controller
     {
         public IActionResult Index()
         {
@@ -12,23 +12,23 @@ namespace CinemaxToledo.Controllers
 
         public IActionResult cadastro ()
         {
-            return View(new CategoriaModel());
+            return View(new PlataformaModel());
         }
 
 
         //HTTPPOST quando for retornar post
         [HttpPost]
-        public IActionResult salvar(CategoriaModel model)
+        public IActionResult salvar(PlataformaModel model)
         {
             if (ModelState.IsValid)
             {
             try
             {          
-            CategoriaModel catmodel = new CategoriaModel();
+            PlataformaModel catmodel = new PlataformaModel();
             catmodel.salvar(model);
                 ViewBag.mensagem = "Dados salvos com sucesso!";
                 ViewBag.classe = "alert-success";
-                return View("cadastro", new CategoriaModel());
+                return View("cadastro", new PlataformaModel());
             }
             catch(Exception ex)
             {
@@ -42,20 +42,20 @@ namespace CinemaxToledo.Controllers
         
        public IActionResult listar()
         {
-            CategoriaModel catModel = new CategoriaModel();
-            List<CategoriaModel> lista = catModel.listar();
+            PlataformaModel catModel = new PlataformaModel();
+            List<PlataformaModel> lista = catModel.listar();
             return View(lista); //passando a lista por parametro para a view
         }
 
         public IActionResult prealterar(int id)
         {
-            CategoriaModel model = new CategoriaModel();
+            PlataformaModel model = new PlataformaModel();
             return View("cadastro", model.selecionar(id));
              }
 
         public IActionResult excluir(int id)
         {
-            CategoriaModel model = new CategoriaModel();
+            PlataformaModel model = new PlataformaModel();
             try
             {               
                 model.excluir(id);

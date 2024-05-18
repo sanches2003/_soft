@@ -11,7 +11,7 @@ using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribut
 
 namespace CinemaxToledo.Models
 {
-    public class CategoriaModel
+    public class PlataformaModel
     {
         [Display(Name = "Código")]
         public int id { get; set; }
@@ -23,9 +23,9 @@ namespace CinemaxToledo.Models
         [Display(Name ="Descrição")]
 
         public String descricao  { get; set; }
-        [Display(Name = "Nome da Categoria")]
+        [Display(Name = "Nome da Plataforma")]
 
-        public CategoriaModel salvar(CategoriaModel model) 
+        public PlataformaModel salvar(PlataformaModel model) 
         {
             /*
             Categoria cat = new Categoria();
@@ -34,12 +34,12 @@ namespace CinemaxToledo.Models
             */
 
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            Categoria cat = mapper.Map<Categoria>(model);
+            Plataforma cat = mapper.Map<Plataforma>(model);
 
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                CategoriaRepositorio repositorio = 
-                    new CategoriaRepositorio(contexto);
+                PlataformaRepositorio repositorio = 
+                    new PlataformaRepositorio(contexto);
 
                 if (model.id == 0)
                     repositorio.Inserir(cat);
@@ -51,31 +51,31 @@ namespace CinemaxToledo.Models
             model.id = cat.id;
             return model;
         }
-            public List<CategoriaModel> listar()
+            public List<PlataformaModel> listar()
             {
-            List<CategoriaModel> listamodel = null;
+            List<PlataformaModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                CategoriaRepositorio repositorio =
-                    new CategoriaRepositorio(contexto);
-                List<Categoria> lista = repositorio.ListarTodos();
-                listamodel = mapper.Map<List<CategoriaModel>>(lista);
+                PlataformaRepositorio repositorio =
+                    new PlataformaRepositorio(contexto);
+                List<Plataforma> lista = repositorio.ListarTodos();
+                listamodel = mapper.Map<List<PlataformaModel>>(lista);
             }
             return listamodel;       
             }
 
-            public CategoriaModel selecionar(int id)
+            public PlataformaModel selecionar(int id)
             {
-            CategoriaModel model = null;
+            PlataformaModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                CategoriaRepositorio repositorio = 
-                    new CategoriaRepositorio(contexto);
+                PlataformaRepositorio repositorio = 
+                    new PlataformaRepositorio(contexto);
                 repositorio.Recuperar(c => c.id == id);//select * from categoria c 'onde' c.id = id
-                Categoria cat = repositorio.Recuperar(c => c.id == id);
-                model = mapper.Map<CategoriaModel>(cat);
+                Plataforma cat = repositorio.Recuperar(c => c.id == id);
+                model = mapper.Map<PlataformaModel>(cat);
             }
             return model;
             }   
@@ -84,9 +84,9 @@ namespace CinemaxToledo.Models
             {
                 using (CinemaxContexto contexto = new CinemaxContexto())
                 {
-                CategoriaRepositorio repositorio =
-                    new CategoriaRepositorio(contexto);
-                Categoria cat = repositorio.Recuperar(c => c.id == id);
+                PlataformaRepositorio repositorio =
+                    new PlataformaRepositorio(contexto);
+                Plataforma cat = repositorio.Recuperar(c => c.id == id);
                 repositorio.Excluir(cat);
                 contexto.SaveChanges();
                 }

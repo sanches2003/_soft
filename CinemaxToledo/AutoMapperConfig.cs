@@ -10,8 +10,8 @@ namespace CinemaxToledo
             {
                 var config = new MapperConfiguration(cfg =>
                 {
-                    cfg.CreateMap<Categoria, CategoriaModel>();
-                    cfg.CreateMap<CategoriaModel, Categoria>();
+                    cfg.CreateMap<Plataforma, PlataformaModel>();
+                    cfg.CreateMap<PlataformaModel, Plataforma>();
 
                     cfg.CreateMap<Filme, FilmeModel>();
                     cfg.CreateMap<FilmeModel, Filme>();

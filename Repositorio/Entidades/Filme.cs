@@ -46,7 +46,7 @@ namespace Repositorio.Entidades
 
 
         //Instanciando a lista numa relação de UM para Muitos:
-        public virtual Categoria categoria { get; set; } // 1 filme tem 1 Categoria.
+        public virtual Plataforma categoria { get; set; } // 1 filme tem 1 Categoria.
         public virtual Estudio estudio { get; set; } // 1 filme tem 1 Estudio.
 
         //temporário

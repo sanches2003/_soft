@@ -21,7 +21,7 @@ namespace CinemaxToledo.Controllers
 
         public IActionResult cadastro()
         {
-            List<CategoriaModel> lista = (new CategoriaModel()).listar();
+            List<PlataformaModel> lista = (new PlataformaModel()).listar();
             ViewBag.listacategorias = lista.Select(c => new SelectListItem()           
             {
                 Value = c.id.ToString(),
@@ -80,7 +80,7 @@ namespace CinemaxToledo.Controllers
 
             //criando listas
 
-            List<CategoriaModel> lista = (new CategoriaModel()).listar();
+            List<PlataformaModel> lista = (new PlataformaModel()).listar();
             ViewBag.listacategorias = lista.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),
@@ -132,7 +132,7 @@ namespace CinemaxToledo.Controllers
         public IActionResult prealterar(int id)
         {
             FilmeModel model = new FilmeModel();
-            List<CategoriaModel> lista = (new CategoriaModel()).listar();
+            List<PlataformaModel> lista = (new PlataformaModel()).listar();
             ViewBag.listacategorias = lista.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),

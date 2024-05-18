@@ -1,13 +1,13 @@
-﻿@model IEnumerable<CategoriaModel>
+﻿@model IEnumerable<PlataformaModel>
 @{
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Categorias</h1>
+<h1>Listar Plataformas</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-<a href="~/categoria/cadastro" class="btn btn-info"> 
+<a href="~/plataforma/cadastro" class="btn btn-info"> 
     Novo
     </a>
     <br />
@@ -28,12 +28,12 @@
                 <th scope="row">@item.id</th>
                 <td>@item.descricao</td>
                 <td>
-                    <a href="~/Categoria/prealterar/@item.id" class="btn btn-primary"> 
+                    <a href="~/plataforma/prealterar/@item.id" class="btn btn-primary"> 
                    Alterar
                     </a>
                 </td>
                 <td>
-                    <a href="~/Categoria/excluir/@item.id" class="btn btn-primary"> 
+                    <a href="~/plataforma/excluir/@item.id" class="btn btn-primary">
                     Excluir
                     </a>
                 </td>          

@@ -18,7 +18,7 @@ namespace Repositorio.Contexto
             this.Database.EnsureCreated();
         }
 
-        public DbSet<Categoria> categoria { get; set; }
+        public DbSet<Plataforma> plataformas { get; set; }
 
         public DbSet<Login> login { get; set; }
 
@@ -43,7 +43,7 @@ namespace Repositorio.Contexto
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=soft1;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
             if (!optionsBuilder.IsConfigured)
           
@@ -54,13 +54,14 @@ namespace Repositorio.Contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categoria>(entidade =>
+            modelBuilder.Entity<Plataforma>(entidade =>
             {
                 entidade.HasKey(e => e.id);// definindo: chave primaria
                 entidade.Property(e => e.descricao).HasMaxLength(150);//qtd max caracteres
             });
 
-            modelBuilder.Entity<Filme>(entidade => {
+            modelBuilder.Entity<Filme>(entidade => 
+            {
                 entidade.HasKey(e => e.id);
                 entidade.Property(e => e.descricao).HasMaxLength(150);
                 //precisao do decimal:
@@ -70,12 +71,13 @@ namespace Repositorio.Contexto
                 //tentando bool 
                 entidade.Property(e => e.estaDisponivel); 
 
-                //criando uma relação: (filme só tem 1 categoria:
+                /*criando uma relação: (filme só tem 1 categoria:
                 entidade.HasOne(e => e.categoria) //o lado da rel. que tem Um
                 .WithMany(c => c.filmes) //o lado da rel. que tem Muitos
                 .HasForeignKey(e => e.idCategoria) //prop chave estrangeira
                 .HasConstraintName("FK_Filme_Categoria") //nome do relacionamento
                 .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
+                */
 
                 //Relação o filme só tem 1 estudio:
                 entidade.HasOne(e => e.estudio) //o lado da rel. que tem Um

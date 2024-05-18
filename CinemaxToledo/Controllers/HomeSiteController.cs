@@ -25,7 +25,7 @@ namespace CinemaxToledo.Controllers
         {
             FilmeModel model = new FilmeModel();
             FilmeModel produto = model.selecionar(id);
-            produto.categoria = (new CategoriaModel()).selecionar(produto.idCategoria);
+            produto.categoria = (new PlataformaModel()).selecionar(produto.idCategoria);
             produto.estudio = (new EstudioModel()).selecionar(produto.idEstudio);
             produto.atores = (new AtoresModel()).selecionar(produto.idAtores);
             //produto.sessoes = (new SessaoModel()).listarSessao(produto.sessao);
