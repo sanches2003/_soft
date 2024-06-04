@@ -19,8 +19,8 @@ namespace CinemaxToledo
                     cfg.CreateMap<Cargo, CargoModel>();
                     cfg.CreateMap<CargoModel, Cargo>();
 
-                    cfg.CreateMap<Atores, AtoresModel>();
-                    cfg.CreateMap<AtoresModel, Atores>();
+                    cfg.CreateMap<CategoriaProblema, CategoriaProblemaModel>();
+                    cfg.CreateMap<CategoriaProblemaModel, CategoriaProblema>();
 
                     cfg.CreateMap<Login, LoginModel>();
                     cfg.CreateMap<LoginModel, Login>();

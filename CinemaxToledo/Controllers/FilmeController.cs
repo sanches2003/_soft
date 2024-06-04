@@ -35,13 +35,6 @@ namespace CinemaxToledo.Controllers
                 Text = c.descricao
             });
 
-            List<AtoresModel> lista2 = (new AtoresModel()).listar();
-            ViewBag.listaatores = lista2 .Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.nomeAtor
-            });
-
 
 
             FilmeModel model = new FilmeModel();
@@ -94,12 +87,7 @@ namespace CinemaxToledo.Controllers
                 Text = c.descricao
             });
 
-            List<AtoresModel> lista2 = (new AtoresModel()).listar();
-            ViewBag.listaatores = lista2.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.nomeAtor
-            });
+
 
             return View("cadastro", model);
         }
@@ -129,13 +117,7 @@ namespace CinemaxToledo.Controllers
                 Value = c.id.ToString(),
                 Text = c.descricao
             });
-            FilmeModel model2 = new FilmeModel();
-            List<AtoresModel> lista2 = (new AtoresModel()).listar();
-            ViewBag.listaatores = lista2.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.nomeAtor
-            });
+       
             FilmeModel model3 = new FilmeModel();
             List<FilmeModel> lista3 = (new FilmeModel()).listar();
             ViewBag.imagemsalva = lista3.Select(c => new SelectListItem()

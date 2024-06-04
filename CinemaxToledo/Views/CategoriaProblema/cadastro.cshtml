@@ -1,11 +1,11 @@
-﻿@model CinemaxToledo.Models.AtoresModel
+﻿@model CinemaxToledo.Models.CategoriaProblemaModel
 @{
     ViewData["Title"] = "cadastro";
 }
 
-<h1>Cadastrar Ator</h1>
+<h1>Cadastrar Categoria do Problema</h1>
 <br />
-<form asp-action="salvar" asp-controller="atores"
+<form asp-action="salvar" asp-controller="CategoriaProblema"
       method="post">
     <div class="row">
         <div class="col-6 form-group">
@@ -14,9 +14,9 @@
             <span asp-validation-for="id" class="alert-danger"></span>
         </div>
         <div class="col-6 form-group">
-            <label asp-for="nomeAtor"></label>
-            <input type="text" asp-for="nomeAtor" class="form-control" />
-            <span asp-validation-for="nomeAtor" class="alert-danger"></span>
+            <label asp-for="descricao"></label>
+            <input type="text" asp-for="descricao" class="form-control" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
         </div>
         <!--
         <div class="col-12 form-group">
