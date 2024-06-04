@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    public class EstudioRepositorio : BaseRepositorio<Estudio>
+    public class CargoRepositorio : BaseRepositorio<Cargo>
     {
-        public EstudioRepositorio(CinemaxContexto contexto)
+        public CargoRepositorio(CinemaxContexto contexto)
             : base(contexto) { }
     }
 }

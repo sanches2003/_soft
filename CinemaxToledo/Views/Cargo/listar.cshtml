@@ -1,13 +1,13 @@
-﻿@model IEnumerable<EstudioModel>
+﻿@model IEnumerable<CargoModel>
 @{
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Estúdios</h1>
+<h1>Listar Cargos</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-<a href="~/estudio/cadastro" class="btn btn-info">
+<a href="~/Cargo/cadastro" class="btn btn-info">
     Novo
 </a>
 <br /><br />
@@ -25,14 +25,14 @@
         {
             <tr>
                 <th scope="row">@item.id</th>
-                <td>@item.nomeEstudio</td>
+                <td>@item.descricao</td>
                 <td>
-                    <a href="~/Estudio/prealterar/@item.id" class="btn btn-primary">
+                    <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary">
                         Alterar
                     </a>
                 </td>
                 <td>
-                    <a href="~/Estudio/excluir/@item.id" class="btn btn-primary">
+                    <a href="~/Cargo/excluir/@item.id" class="btn btn-primary">
                         Excluir
                     </a>
                 </td>

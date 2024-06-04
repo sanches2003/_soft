@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CinemaxToledo.Models
 {
-    public class EstudioModel
+    public class CargoModel
     {
         [Display(Name = "Código")]
         public int id { get; set; }
@@ -17,11 +17,11 @@ namespace CinemaxToledo.Models
         [MaxLength(150, ErrorMessage = "Descrição deve ter no máximo 150 caracteres!")]
         [MinLength(3, ErrorMessage = "Descrição deve ter no mínimo 3 caracteres!")]
 
-        [Display(Name = "Nome do Estúdio")]
-        public String nomeEstudio { get; set; }
+        [Display(Name = "Descrição")]
+        public String descricao { get; set; }
         
 
-        public EstudioModel salvar(EstudioModel model)
+        public CargoModel salvar(CargoModel model)
         {
             /*
             Estudio cat = new Estudio();
@@ -30,12 +30,12 @@ namespace CinemaxToledo.Models
             */
 
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            Estudio cat = mapper.Map<Estudio>(model);
+            Cargo cat = mapper.Map<Cargo>(model);
 
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                EstudioRepositorio repositorio =
-                    new EstudioRepositorio(contexto);
+                CargoRepositorio repositorio =
+                    new CargoRepositorio(contexto);
 
                 if (model.id == 0)
                     repositorio.Inserir(cat);
@@ -47,31 +47,31 @@ namespace CinemaxToledo.Models
             model.id = cat.id;
             return model;
         }
-        public List<EstudioModel> listar()
+        public List<CargoModel> listar()
         {
-            List<EstudioModel> listamodel = null;
+            List<CargoModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                EstudioRepositorio repositorio =
-                    new EstudioRepositorio(contexto);
-                List<Estudio> lista = repositorio.ListarTodos();
-                listamodel = mapper.Map<List<EstudioModel>>(lista);
+                CargoRepositorio repositorio =
+                    new CargoRepositorio(contexto);
+                List<Cargo> lista = repositorio.ListarTodos();
+                listamodel = mapper.Map<List<CargoModel>>(lista);
             }
             return listamodel;
         }
 
-        public EstudioModel selecionar(int id)
+        public CargoModel selecionar(int id)
         {
-            EstudioModel model = null;
+            CargoModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                EstudioRepositorio repositorio =
-                    new EstudioRepositorio(contexto);
+                CargoRepositorio repositorio =
+                    new CargoRepositorio(contexto);
                 repositorio.Recuperar(c => c.id == id);//select * from Estudio c 'onde' c.id = id
-                Estudio cat = repositorio.Recuperar(c => c.id == id);
-                model = mapper.Map<EstudioModel>(cat);
+                Cargo cat = repositorio.Recuperar(c => c.id == id);
+                model = mapper.Map<CargoModel>(cat);
             }
             return model;
         }
@@ -80,9 +80,9 @@ namespace CinemaxToledo.Models
         {
             using (CinemaxContexto contexto = new CinemaxContexto())
             {
-                EstudioRepositorio repositorio =
-                    new EstudioRepositorio(contexto);
-                Estudio cat = repositorio.Recuperar(c => c.id == id);
+                CargoRepositorio repositorio =
+                    new CargoRepositorio(contexto);
+                Cargo cat = repositorio.Recuperar(c => c.id == id);
                 repositorio.Excluir(cat);
                 contexto.SaveChanges();
             }

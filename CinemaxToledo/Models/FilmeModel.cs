@@ -63,14 +63,12 @@ namespace CinemaxToledo.Models
 
         public PlataformaModel? categoria { get; set; }
         
-        public EstudioModel? estudio { get; set; }
+        public CargoModel? estudio { get; set; }
    
         public AtoresModel? atores { get; set; }
 
-        public SessaoModel? sessao { get; set; }
 
 
-        public virtual List<SessaoModel>? sessoes { get; set; }
 
         public FilmeModel salvar(FilmeModel model,
             IWebHostEnvironment webHostEnvironment)

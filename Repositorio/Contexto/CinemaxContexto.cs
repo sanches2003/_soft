@@ -26,9 +26,9 @@ namespace Repositorio.Contexto
 
         public DbSet<Filme> filme { get; set; }
 
-        public DbSet<Estudio> estudio { get; set; }
+        public DbSet<Cargo> cargo { get; set; }
 
-        public DbSet<Sessao> sessao { get; set; }
+        public DbSet<Empresa> empresa { get; set; }
 
         public DbSet<Venda> venda { get; set; }
 
@@ -43,7 +43,8 @@ namespace Repositorio.Contexto
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=JULIA;DataBase=Atendimento8;integrated security=true;Trust Server Certificate=true";
+            
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
             if (!optionsBuilder.IsConfigured)
           
@@ -79,12 +80,6 @@ namespace Repositorio.Contexto
                 .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
                 */
 
-                //Relação o filme só tem 1 estudio:
-                entidade.HasOne(e => e.estudio) //o lado da rel. que tem Um
-                .WithMany(c => c.filmes) //o lado da rel. que tem Muitos
-                .HasForeignKey(e => e.idEstudio) //prop chave estrangeira
-                .HasConstraintName("FK_Filme_Estudio") //nome do relacionamento
-                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
             });
 
             
@@ -164,42 +159,30 @@ namespace Repositorio.Contexto
                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
             });
 
-            //Estudio:
-            modelBuilder.Entity<Estudio>(entidade => {
+            modelBuilder.Entity<Cargo>(entidade => {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.nomeEstudio).HasMaxLength(150);               
+                entidade.Property(e => e.descricao).HasMaxLength(150);               
     
             });
 
-            modelBuilder.Entity<Sessao>(entidade =>
+            modelBuilder.Entity<Empresa>(entidade =>
             {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.sala);
-                entidade.Property(e => e.local).HasMaxLength(150);
-                //tentando DateTime
-                entidade.Property(e => e.diaSessao); 
-                entidade.Property(e => e.horaSessao);
-                //criando uma relação: ---> em relação a entidade em questão
-                entidade.HasOne(e => e.filmes) //o lado da rel. que tem Um 
-                .WithMany(c => c.sessoes) //o lado da rel. que tem Muitos
-                .HasForeignKey(e => e.idFilme) //prop chave estrangeira
-                .HasConstraintName("FK_Sessao_Filmes") //nome do relacionamento
-                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
-            });
-
-            /*
-            modelBuilder.Entity<Login>(entidade =>
-            {
-                entidade.HasKey(e => e.id);
-                entidade.Property(e => e.login).HasMaxLength(150); 
-                entidade.Property(e => e.senha).HasMaxLength(150);
-                //teste de bool:
-                entidade.Property(e => e.ativo); //teste
+                entidade.Property(e => e.razaosocial).HasMaxLength(150);
+                entidade.Property(e => e.cnpj).HasMaxLength(20);
+                entidade.Property(e => e.telefone).HasMaxLength(20);
+                entidade.Property(e => e.celular).HasMaxLength(20);
+                entidade.Property(e => e.email).HasMaxLength(150);
+                entidade.Property(e => e.cep).HasMaxLength(150);
+                entidade.Property(e => e.logradouro).HasMaxLength(150);
+                entidade.Property(e => e.numero).HasMaxLength(20);
+                entidade.Property(e => e.bairro).HasMaxLength(150);
+                entidade.Property(e => e.cidade).HasMaxLength(150);
+                entidade.Property(e => e.estado).HasMaxLength(150);
+                entidade.Property(e => e.complemento).HasMaxLength(150);
 
             });
-            */
 
-            //Login
             modelBuilder.Entity<Login>(entidade => {
                 entidade.HasKey(e => e.id);
                 entidade.Property(e => e.login).HasMaxLength(150);

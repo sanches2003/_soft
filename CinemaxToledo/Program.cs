@@ -1,4 +1,8 @@
+using CinemaxToledo.Integracao;
+using CinemaxToledo.Integracao.Interfaces;
+using CinemaxToledo.Integracao.Refit;
 using Microsoft.AspNetCore.Mvc;
+using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Adicione eessa linha para que seu projeto volte a funcionar normalmente.
+
+builder.Services.AddScoped<IViaCepIntegracao, ViaCepIntegracao>();
+
+builder.Services.AddRefitClient<IViaCepIntegracaoRefit>().ConfigureHttpClient(c =>
+{
+    c.BaseAddress = new Uri("https://viacep.com.br");
+});
+
 
 var app = builder.Build();
 

@@ -1,0 +1,150 @@
+﻿@model EmpresaModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery Mask Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+<h1>Empresas</h1>
+<br />
+
+<form asp-action="salvar" asp-controller="Empresa" method="post">
+
+    <!-- Dados da Empresa -->
+    <div class="row">
+        <div class="col-12">
+            <h2>Dados</h2>
+        </div>
+        <div class="col-6 form-group">
+            <label asp-for="razaosocial"></label>
+            <input type="text" asp-for="razaosocial" class="form-control" />
+            <span asp-validation-for="razaosocial" class="alert-danger"></span>
+        </div>
+        <div class="col-4 form-group">
+            <label asp-for="cnpj"></label>
+            <input id="cnpj" type="text" asp-for="cnpj" class="form-control" />
+            <span asp-validation-for="cnpj" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <!-- Sobre a Empresa -->
+    <div class="row">
+        <div class="col-12">
+            <h2>Sobre a Empresa</h2>
+        </div>
+        <div class="col-12 form-group">
+            <label asp-for="telefone"></label>
+            <input id="telefone" type="text" asp-for="telefone" class="form-control" />
+            <span asp-validation-for="telefone" class="alert-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <label asp-for="celular"></label>
+            <input id="celular" type="text" asp-for="celular" class="form-control" />
+            <span asp-validation-for="celular" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="email"></label>
+            <input type="email" asp-for="email" class="form-control" />
+            <span asp-validation-for="email" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <!-- Endereço -->
+    <div class="row">
+        <div class="col-12">
+            <h2>Endereço</h2>
+        </div>
+        <div class="col-2 form-group">
+            <label asp-for="cep"></label>
+            <input id="cep" type="text" asp-for="cep" class="form-control" />
+            <span asp-validation-for="cep" class="alert-danger"></span>
+        </div>
+
+        <div class="col-10">
+            <label asp-for="logradouro"></label>
+            <input type="text" asp-for="logradouro" class="form-control" readonly />
+            <span asp-validation-for="logradouro" class="alert-danger"></span>
+        </div>
+
+
+        <div class="col-2 form-group">
+            <label asp-for="numero"></label>
+            <input type="number" asp-for="numero" class="form-control" />
+            <span asp-validation-for="numero" class="alert-danger"></span>
+        </div>
+
+        <div class="col-5">
+            <label asp-for="bairro"></label>
+            <input type="text" asp-for="bairro" class="form-control" readonly />
+            <span asp-validation-for="bairro" class="alert-danger"></span> 
+        </div>
+
+        <div class="col-4">
+            <label asp-for="cidade"></label>
+            <input type="text" asp-for="cidade" class="form-control" readonly />
+            <span asp-validation-for="cidade" class="alert-danger"></span>
+        </div>
+
+        <div class="col-1">
+            <label asp-for="estado"></label>
+            <input type="text" asp-for="estado" class="form-control" readonly />
+            <span asp-validation-for="estado" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="complemento"></label>
+            <input type="text" asp-for="complemento" class="form-control" />
+            <span asp-validation-for="complemento" class="alert-danger"></span>
+        </div>
+       
+    </div>
+
+    <!-- Botão de Salvar -->
+    <div class="col-12 form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+    <div class="col-12 form-group" style="margin-top:50px">
+        <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+    </div>
+
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
+            $('#telefone').mask('(00) 0000-0000');
+            $('#celular').mask('(00) 00000-0000');
+            $('#cep').mask('00000-000').on('blur', function () {
+                console.log('Evento blur acionado.'); // Adiciona uma mensagem ao console para verificar se o evento blur está sendo acionado corretamente.
+
+                var cep = $(this).val().replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+                console.log('CEP:', cep); // Adiciona o valor do CEP ao console para verificar se está sendo obtido corretamente.
+
+                if (cep.length != 8) {
+                    return;
+                }
+
+                $.getJSON('https://viacep.com.br/ws/' + cep + '/json/', function (data) {
+                    if (!('erro' in data)) {
+                        $('#logradouro').val(data.logradouro);
+                        $('#bairro').val(data.bairro);
+                        $('#cidade').val(data.localidade);
+                        $('#estado').val(data.uf);
+                    } else {
+                        alert('CEP não encontrado.');
+                    }
+                });
+            });
+        });
+
+    </script>
+}

@@ -1,11 +1,11 @@
-﻿@model CinemaxToledo.Models.EstudioModel
+﻿@model CinemaxToledo.Models.CargoModel
 @{
     ViewData["Title"] = "cadastro";
 }
 
-<h1>Cadastrar Estúdio</h1>
+<h1>Cargos</h1>
 <br />
-<form asp-controller="Estudio" asp-action="salvar" method="post">
+<form asp-controller="Cargo" asp-action="salvar" method="post">
     <div class="row">
         <div class="col-6 form-group">
             <label asp-for="id"></label>
@@ -13,13 +13,13 @@
             <span asp-validation-for="id" class="alert-danger"></span>
         </div>
         <div class="col-6 form-group">
-            <label asp-for="nomeEstudio"></label>
-            <input type="text" asp-for="nomeEstudio" class="form-control" />
-            <span asp-validation-for="nomeEstudio" class="alert-danger"></span>
+            <label asp-for="descricao"></label>
+            <input type="text" asp-for="descricao" class="form-control" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
         </div>
         <br>
         <div class="col-12 form-group">
-            <input type="submit" value="salvar" class="btn btn-primary" />
+            <input type="submit" value="Salvar" class="btn btn-primary" />
         </div>
         <div class="col-12 form-group" style="margin-top:50px">
             <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>

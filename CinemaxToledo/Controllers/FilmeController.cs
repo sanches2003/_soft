@@ -28,11 +28,11 @@ namespace CinemaxToledo.Controllers
                 Text = c.descricao
             });
 
-            List<EstudioModel> lista1 = (new EstudioModel()).listar();
+            List<CargoModel> lista1 = (new CargoModel()).listar();
             ViewBag.listaestudios = lista1.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),
-                Text = c.nomeEstudio
+                Text = c.descricao
             });
 
             List<AtoresModel> lista2 = (new AtoresModel()).listar();
@@ -87,11 +87,11 @@ namespace CinemaxToledo.Controllers
                 Text = c.descricao
             });
 
-            List<EstudioModel> lista1 = (new EstudioModel()).listar();
+            List<CargoModel> lista1 = (new CargoModel()).listar();
             ViewBag.listaestudios = lista1.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),
-                Text = c.nomeEstudio
+                Text = c.descricao
             });
 
             List<AtoresModel> lista2 = (new AtoresModel()).listar();
@@ -99,22 +99,6 @@ namespace CinemaxToledo.Controllers
             {
                 Value = c.id.ToString(),
                 Text = c.nomeAtor
-            });
-
-            List<SessaoModel> listaDia = (new SessaoModel()).listar();
-            ViewBag.listasessoes = listaDia.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),        
-                Text = c.diaSessao.ToString(),
-
-            });
-
-            List<SessaoModel> listaHora = (new SessaoModel()).listar();
-            ViewBag.listasessoes = listaHora.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.horaSessao.ToString(),
-
             });
 
             return View("cadastro", model);
@@ -139,11 +123,11 @@ namespace CinemaxToledo.Controllers
                 Text = c.descricao
             });
             FilmeModel model1 = new FilmeModel();
-            List<EstudioModel> lista1 = (new EstudioModel()).listar();
+            List<CargoModel> lista1 = (new CargoModel()).listar();
             ViewBag.listaestudios = lista1.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),
-                Text = c.nomeEstudio
+                Text = c.descricao
             });
             FilmeModel model2 = new FilmeModel();
             List<AtoresModel> lista2 = (new AtoresModel()).listar();
