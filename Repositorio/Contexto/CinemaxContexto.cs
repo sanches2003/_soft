@@ -22,7 +22,7 @@ namespace Repositorio.Contexto
 
         public DbSet<Login> login { get; set; }
 
-        public DbSet<Atores> atores { get; set; }
+        public DbSet<CategoriaProblema> categoriasproblemas { get; set; }
 
         public DbSet<Filme> filme { get; set; }
 
@@ -43,7 +43,7 @@ namespace Repositorio.Contexto
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft_;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
             if (!optionsBuilder.IsConfigured)
           
@@ -86,15 +86,11 @@ namespace Repositorio.Contexto
                 .HasConstraintName("FK_Filme_Estudio") //nome do relacionamento
                 .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
             });
-
-            
-            
-            //Tentativa de criar uma relação de MUITOS MUITOS usando AtoresFilme:
            
-            modelBuilder.Entity<Atores>(entidade =>
+            modelBuilder.Entity<CategoriaProblema>(entidade =>
             {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.nomeAtor).HasMaxLength(150);
+                entidade.Property(e => e.descricao).HasMaxLength(150);
 
             });
 
@@ -144,24 +140,6 @@ namespace Repositorio.Contexto
                 //qtde max caracteres
                 entidade.Property(e => e.descricao).HasMaxLength(150);
 
-            });
-
-            //AtoresFilme
-            modelBuilder.Entity<AtoresFilme>(entidade =>
-            {
-                entidade.HasKey(e => e.id);
-                //criando uma relação:
-                entidade.HasOne(e => e.ator) //o lado da rel. que tem Um
-                .WithMany(c => c.atores_filme) //o lado da rel. que tem Muitos
-                .HasForeignKey(e => e.idAtores) //prop chave estrangeira
-                .HasConstraintName("FK_Atores_FilmesAtores") //nome do relacionamento
-
-                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
-                entidade.HasOne(e => e.Filme) //o lado da rel. que tem Um
-               .WithMany(c => c.atores_filme) //o lado da rel. que tem Muitos
-               .HasForeignKey(e => e.idFilme) //prop chave estrangeira
-               .HasConstraintName("FK_Filmes_AtoresFilmes") //nome do relacionamento
-               .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
             });
 
             //Estudio:

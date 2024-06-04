@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace Repositorio.Entidades
 {
-    public class Atores
+    public class CategoriaProblema
     {
-        public Atores()
-        {
-            this.atores_filme = new HashSet<AtoresFilme>();
-        }
+     
 
         public int id { get; set; }
 
-        public String nomeAtor { get; set; }
+        public String descricao { get; set; }
 
         //Criar a lista de filme respectiva ao atores:
-        public virtual ICollection<AtoresFilme> atores_filme { get; set; }
+
 
         
     }

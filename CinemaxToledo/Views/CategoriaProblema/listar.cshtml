@@ -1,24 +1,25 @@
-﻿@model IEnumerable<AtoresModel>
+﻿@model IEnumerable<CategoriaProblemaModel>
 @{
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Atores</h1>
+
+<h1>Listar Categorias do Problema</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
 <script>
 
     function confirmExclusao(id) {
-        if (confirm("Tem certeza que deseja excluir esse produto?")) {
+        if (confirm("Tem certeza que deseja excluir essa categoria?")) {
 
-            location.href = "/Atores/excluir/" + id;
+            location.href = "/CategoriaProblema/excluir/" + id;
 
         }
     }
 </script>
 
-<a href="~/Atores/cadastro" class="btn btn-info">
+<a href="~/CategoriaProblema/cadastro" class="btn btn-info">
     Novo
 </a>
 <br />
@@ -27,7 +28,7 @@
     <thead>
         <tr>
             <th scope="col">Código</th>
-            <th scope="col">Nome do Ator</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Alterar</th>
             <th scope="col">Excluir</th>
             <!--<th scope="col">Filmes</th>-->
@@ -39,9 +40,9 @@
         {
             <tr>
                 <th scope="row">@item.id</th>
-                <td>@item.nomeAtor</td>
+                <td>@item.descricao</td>
                 <td>
-                    <a href="~/atores/prealterar/@item.id"
+                    <a href="~/CategoriaProblema/prealterar/@item.id"
                    class="btn btn-primary">
                         Alterar
                     </a>

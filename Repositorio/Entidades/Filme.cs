@@ -10,7 +10,6 @@ namespace Repositorio.Entidades
     {
         public Filme()
         {
-            this.atores_filme = new HashSet<AtoresFilme>(); //ver com a prof!!!
             this.vendasingressos = new HashSet<VendaIngresso>();
             this.sessoes = new HashSet<Sessao>();
         }
@@ -50,10 +49,8 @@ namespace Repositorio.Entidades
         public virtual Estudio estudio { get; set; } // 1 filme tem 1 Estudio.
 
         //temporário
-        public virtual Atores? atores { get; set; } // 1 filme tem 1 Estudio.
+        public virtual CategoriaProblema? atores { get; set; } // 1 filme tem 1 Estudio.
 
-        //Criar a lista de ***Atores*** respectiva ao FILMES (ver com a prof!!!)
-        public virtual ICollection<AtoresFilme> atores_filme { get; set; }
 
 
         //Criar a lista de ***Sessões*** para FILMES:

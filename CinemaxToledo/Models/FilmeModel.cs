@@ -64,8 +64,6 @@ namespace CinemaxToledo.Models
         public PlataformaModel? categoria { get; set; }
         
         public EstudioModel? estudio { get; set; }
-   
-        public AtoresModel? atores { get; set; }
 
         public SessaoModel? sessao { get; set; }
 

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CinemaxToledo.Controllers
 {
-    public class AtoresController : Controller
+    public class CategoriaProblemaController : Controller
     {
         public IActionResult Index()
         {
@@ -13,24 +13,19 @@ namespace CinemaxToledo.Controllers
 
         public IActionResult cadastro()
         {
-            List<FilmeModel> lista = (new FilmeModel()).listar();
-            ViewBag.listafilmes = lista.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.descricao
-            });
-            return View(new AtoresModel());
+            return View(new CategoriaProblemaModel());
         }
 
+
         [HttpPost]
-        public IActionResult salvar(AtoresModel model)
+        public IActionResult salvar(CategoriaProblemaModel model)
         {
             if (ModelState.IsValid)
             {
 
                 try
                 {
-                    AtoresModel catmodel = new AtoresModel();
+                    CategoriaProblemaModel catmodel = new CategoriaProblemaModel();
                     catmodel.salvar(model);
                     ViewBag.mensagem = "Dados salvos com sucesso!";
                     ViewBag.classe = "alert-success";
@@ -49,29 +44,28 @@ namespace CinemaxToledo.Controllers
 
             }
 
-            List<FilmeModel> lista = (new FilmeModel()).listar();
-            ViewBag.listafilmes = lista.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.descricao
-            });
-
             return View("cadastro", model);
         }
 
 
         public IActionResult listar()
         {
-            AtoresModel catModel = new AtoresModel();
-            List<AtoresModel> lista = catModel.listar();
+            CategoriaProblemaModel catModel = new CategoriaProblemaModel();
+            List<CategoriaProblemaModel> lista = catModel.listar();
             return View(lista);//lista por parametro para a view
         }
 
-
         public IActionResult prealterar(int id)
         {
-            AtoresModel model = new AtoresModel();
-            List<FilmeModel> lista = (new FilmeModel()).listar();
+            CategoriaProblemaModel model = new CategoriaProblemaModel();
+            return View("cadastro", model.selecionar(id));
+        }
+
+        /*
+        public IActionResult prealterar(int id)
+        {
+            CategoriaProblemaModel model = new CategoriaProblemaModel();
+            ***List<FilmeModel> lista = (new FilmeModel()).listar();
             ViewBag.listafilmes = lista.Select(c => new SelectListItem()
             {
                 Value = c.id.ToString(),
@@ -79,10 +73,10 @@ namespace CinemaxToledo.Controllers
             });
             return View("cadastro", model.selecionar(id));
         }
-
+        */
         public IActionResult excluir(int id)
         {
-            AtoresModel model = new AtoresModel();
+            CategoriaProblemaModel model = new CategoriaProblemaModel();
             try
             {
 
