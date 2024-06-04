@@ -22,7 +22,7 @@ namespace Repositorio.Contexto
 
         public DbSet<Login> login { get; set; }
 
-        public DbSet<Atores> atores { get; set; }
+        public DbSet<CategoriaProblema> categoriasproblemas { get; set; }
 
         public DbSet<Filme> filme { get; set; }
 
@@ -43,8 +43,11 @@ namespace Repositorio.Contexto
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=JULIA;DataBase=Atendimento8;integrated security=true;Trust Server Certificate=true";
+
+            var stringConexao = @"Server=JULIA;DataBase=1;integrated security=true";
             
+
+            //var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft_;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
             if (!optionsBuilder.IsConfigured)
           
@@ -58,7 +61,7 @@ namespace Repositorio.Contexto
             modelBuilder.Entity<Plataforma>(entidade =>
             {
                 entidade.HasKey(e => e.id);// definindo: chave primaria
-                entidade.Property(e => e.descricao).HasMaxLength(150);//qtd max caracteres
+                entidade.Property(e => e.descricao).HasMaxLength(30);//qtd max caracteres
             });
 
             modelBuilder.Entity<Filme>(entidade => 
@@ -81,15 +84,11 @@ namespace Repositorio.Contexto
                 */
 
             });
-
-            
-            
-            //Tentativa de criar uma relação de MUITOS MUITOS usando AtoresFilme:
            
-            modelBuilder.Entity<Atores>(entidade =>
+            modelBuilder.Entity<CategoriaProblema>(entidade =>
             {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.nomeAtor).HasMaxLength(150);
+                entidade.Property(e => e.descricao).HasMaxLength(30);
 
             });
 
@@ -141,45 +140,28 @@ namespace Repositorio.Contexto
 
             });
 
-            //AtoresFilme
-            modelBuilder.Entity<AtoresFilme>(entidade =>
-            {
-                entidade.HasKey(e => e.id);
-                //criando uma relação:
-                entidade.HasOne(e => e.ator) //o lado da rel. que tem Um
-                .WithMany(c => c.atores_filme) //o lado da rel. que tem Muitos
-                .HasForeignKey(e => e.idAtores) //prop chave estrangeira
-                .HasConstraintName("FK_Atores_FilmesAtores") //nome do relacionamento
-
-                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
-                entidade.HasOne(e => e.Filme) //o lado da rel. que tem Um
-               .WithMany(c => c.atores_filme) //o lado da rel. que tem Muitos
-               .HasForeignKey(e => e.idFilme) //prop chave estrangeira
-               .HasConstraintName("FK_Filmes_AtoresFilmes") //nome do relacionamento
-               .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
-            });
 
             modelBuilder.Entity<Cargo>(entidade => {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.descricao).HasMaxLength(150);               
+                entidade.Property(e => e.descricao).HasMaxLength(20);               
     
             });
 
             modelBuilder.Entity<Empresa>(entidade =>
             {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.razaosocial).HasMaxLength(150);
+                entidade.Property(e => e.razaosocial).HasMaxLength(30);
                 entidade.Property(e => e.cnpj).HasMaxLength(20);
                 entidade.Property(e => e.telefone).HasMaxLength(20);
                 entidade.Property(e => e.celular).HasMaxLength(20);
                 entidade.Property(e => e.email).HasMaxLength(150);
                 entidade.Property(e => e.cep).HasMaxLength(150);
-                entidade.Property(e => e.logradouro).HasMaxLength(150);
+                entidade.Property(e => e.logradouro).HasMaxLength(30);
                 entidade.Property(e => e.numero).HasMaxLength(20);
-                entidade.Property(e => e.bairro).HasMaxLength(150);
-                entidade.Property(e => e.cidade).HasMaxLength(150);
-                entidade.Property(e => e.estado).HasMaxLength(150);
-                entidade.Property(e => e.complemento).HasMaxLength(150);
+                entidade.Property(e => e.bairro).HasMaxLength(30);
+                entidade.Property(e => e.cidade).HasMaxLength(30);
+                entidade.Property(e => e.estado).HasMaxLength(30);
+                entidade.Property(e => e.complemento).HasMaxLength(30);
 
             });
 
