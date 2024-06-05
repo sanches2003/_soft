@@ -20,8 +20,13 @@ namespace CinemaxToledo.Models
 
         [Display(Name = "Usuário Administrador")]
         public bool ativo { get; set; }
-        
-        
+
+        [Display(Name = "Cargo")]
+        public int idCargo { get; set; }
+
+        public CargoModel? cargo { get; set; }
+
+
 
 
         public LoginModel validarLogin(string email, String senha){

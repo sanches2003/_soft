@@ -15,5 +15,9 @@ namespace Repositorio.Entidades
         public String senha { get; set; }
 
         public bool ativo { get; set; }
+
+        public int idCargo { get; set; }
+
+        public virtual Cargo cargo { get; set; }
     }
 }

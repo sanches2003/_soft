@@ -44,11 +44,11 @@ namespace Repositorio.Contexto
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            var stringConexao = @"Server=JULIA;Database=Atendimento9;Integrated Security=true;Trust Server Certificate=true;";
+            //var stringConexao = @"Server=JULIA;Database=Atendimento9;Integrated Security=true;Trust Server Certificate=true;";
 
 
 
-            //var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft_;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft0;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
 
             if (!optionsBuilder.IsConfigured)
@@ -172,6 +172,12 @@ namespace Repositorio.Contexto
                 entidade.Property(e => e.login).HasMaxLength(150);
                 entidade.Property(e => e.senha).HasMaxLength(150);
                 entidade.Property(e => e.ativo);
+                //criando uma relação: (filme só tem 1 categoria:
+                entidade.HasOne(e => e.cargo) //o lado da rel. que tem Um
+                .WithMany(c => c.usuarios) //o lado da rel. que tem Muitos
+                .HasForeignKey(e => e.idCargo) //prop chave estrangeira
+                .HasConstraintName("FK_Login_Cargo") //nome do relacionamento
+                .OnDelete(DeleteBehavior.NoAction); //configuração da exclusao
             });
         }
 

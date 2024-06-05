@@ -1,6 +1,9 @@
 ﻿using CinemaxToledo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CinemaxToledo.Controllers
 {
@@ -13,6 +16,13 @@ namespace CinemaxToledo.Controllers
 
         public IActionResult cadastro()
         {
+            List<CargoModel> lista = (new CargoModel()).listar();
+            ViewBag.listacargos = lista.Select(c => new SelectListItem()
+            {
+                Value = c.id.ToString(),
+                Text = c.descricao
+            });
+
             return View(new LoginModel());
         }
 
@@ -38,17 +48,25 @@ namespace CinemaxToledo.Controllers
             }
             return View("cadastro");
         }
-
+  
 
         public IActionResult listar()
         {
+
             LoginModel catModel = new LoginModel();
             List<LoginModel> lista = catModel.listar();
+
             return View(lista); //passando a lista por parametro para a view
         }
 
         public IActionResult prealterar(int id)
         {
+            List<CargoModel> lista = (new CargoModel()).listar();
+            ViewBag.listacargos = lista.Select(c => new SelectListItem()
+            {
+                Value = c.id.ToString(),
+                Text = c.descricao
+            });
             LoginModel model = new LoginModel();
             return View("cadastro", model.selecionar(id));
         }
