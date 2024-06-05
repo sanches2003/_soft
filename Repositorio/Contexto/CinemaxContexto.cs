@@ -44,11 +44,13 @@ namespace Repositorio.Contexto
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            var stringConexao = @"Server=JULIA;DataBase=1;integrated security=true";
-            
+            var stringConexao = @"Server=JULIA;Database=Atendimento9;Integrated Security=true;Trust Server Certificate=true;";
+
+
 
             //var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft_;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
+
             if (!optionsBuilder.IsConfigured)
           
             {

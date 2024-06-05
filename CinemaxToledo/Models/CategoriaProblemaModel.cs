@@ -11,7 +11,12 @@ namespace CinemaxToledo.Models
         [Display(Name = "Código")]
         public int id { get; set; }
 
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [MaxLength(20, ErrorMessage = "Descrição deve ter no máximo 20 caracteres!")]
+        [MinLength(3, ErrorMessage = "Descrição deve ter no mínimo 3 caracteres!")]
         [Display(Name = "Descrição")]
+
         public String descricao { get; set; }
         
 

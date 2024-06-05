@@ -12,8 +12,11 @@ namespace CinemaxToledo.Models
         [Display(Name = "Código")]
         public int id { get; set; }
 
+
+        [MaxLength(50, ErrorMessage = "Descrição deve ter no máximo 50 caracteres!")]
         [Display(Name = "Razão Social")] 
         public String razaosocial { get; set; }
+
 
         [Display(Name = "CNPJ")]
         [StringLength(18, MinimumLength = 18, ErrorMessage = "O CNPJ deve ter 14 dígitos.")]
@@ -32,6 +35,8 @@ namespace CinemaxToledo.Models
         [StringLength(9, MinimumLength = 9, ErrorMessage = "O CEP deve ter 8 dígitos.")]
         public string cep { get; set; }
 
+
+        [MaxLength(30, ErrorMessage = "Descrição deve ter no máximo 30 caracteres!")]
         [Display(Name = "Logradouro")]
         public String logradouro { get; set; }
 
@@ -47,6 +52,7 @@ namespace CinemaxToledo.Models
         [Display(Name = "Estado")]
         public String estado { get; set; }
 
+        [MaxLength(30, ErrorMessage = "Descrição deve ter no máximo 30 caracteres!")]
         [Display(Name = "Complemento")]
         public String complemento { get; set; }
 
