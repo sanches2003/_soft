@@ -26,6 +26,38 @@ namespace CinemaxToledo.Controllers
             return View(new LoginModel());
         }
 
+        public IActionResult cadastrese()
+        {
+            List<CargoModel> lista = (new CargoModel()).listar();
+            ViewBag.listacargos = lista.Select(c => new SelectListItem()
+            {
+                Value = c.id.ToString(),
+                Text = c.descricao
+            });
+
+            return View(new LoginModel());
+        }
+
+        [HttpPost]
+        public IActionResult salvarcadastrese(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    LoginModel catmodel = new LoginModel();
+                    catmodel.salvar(model);
+                    ViewBag.mensagem = "Dados salvos com sucesso!";
+                    ViewBag.classe = "alert-success";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.mensagem = "ops... Erro ao salvar!" + ex.Message + "/" + ex.InnerException;
+                    ViewBag.classe = "alert-danger";
+                }
+            }
+            return View("login");
+        }
 
         //HTTPPOST quando for retornar post
         [HttpPost]
