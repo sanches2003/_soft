@@ -11,41 +11,55 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <br />
     <title>Login</title>
 </head>
 
 <body>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="~/HomeSite/Index">Página Inicial</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Login</li>
+            <li class="font-weight-bold"><h4 href="~/HomeSite/Index">COMPUSOFT ATENDIMENTO</h4></li>
         </ol>
     </nav>
-    <center><h1 class="font-weight-bold">Faça Login</h1></center>
-    <br />
-    <center><div class="card" style="width: 18rem;">
-        <form class="px-4 py-3 asp-controller="Login" asp-action="logar" method="post">
-            <div class="form-group">
-                    <label class="font-weight-bold" for="exampleDropdownFormEmail2">Informe seu Email</label>
-                <input name="txtlogin" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Seu email">
-                <small id="emailHelp" class="form-text text-muted"></small>
-            </div>
-            <div class="form-group">
-                    <label class="font-weight-bold" for="exampleInputPassword2">Senha</label>
-                <input name="txtsenha" type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                    <label class="form-check-label font-weight-bold" for="exampleCheck2">Lembrar de mim</label>
-            </div>
-            <div>
-                <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
-            </div>
-                <button type="submit" class="btn btn-success">Logar</button>
-                <button type="submit" class="btn btn-success" asp-action="cadastrese" asp-controller="login">Cadastre-se</button>
-        </form>
-    </div>
+    <br>
+    <br>
+    <br>
+    <center>
+        <div aria-label="breadcrumb" class="card" style="width: 40rem;">
+            <form class="px-4 py-3 asp-controller="Login" asp-action="logar" method="post">
+                <div class="form-group">
+                    <center><h4 class="text-left">Entre com o seu Login</h4></center>
+                    <br>
+                    <div class="text-left">
+                        <label class="font-weight-bold" for="exampleDropdownFormEmail2">Usuário</label>
+                    </div>
+                    <input name="txtlogin" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <div class="text-left">
+                        <label class="font-weight-bold" for="exampleInputPassword2">Senha</label>
+                    </div>
+                    <input name="txtsenha" type="password" class="form-control" id="exampleInputPassword2">
+                </div>
+                <div class="form-group">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-left">
+                            <label class="form-check-label font-weight-bold" for="exampleCheck1">Esqueceu sua senha?</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label font-weight-bold" for="exampleCheck1">Lembrar de mim</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button>aaaaaaa</button>
+                <button type="submit" class="btn btn-primary" asp-action="cadastrese" asp-controller="login">Cadastre-se</button>
+            </form>
+        </div>
     </center>
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
