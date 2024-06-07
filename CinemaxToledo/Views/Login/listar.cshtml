@@ -3,11 +3,11 @@
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Usuários</h1>
+<h1>Usuários</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-<a href="~/login/cadastro" class="btn btn-info">
+<a href="~/login/cadastro" class="btn btn-info" style="background-color: #021532;">
     Novo
 </a>
 
@@ -19,8 +19,6 @@
         <tr>
             <th scope="col">Código</th>
             <th scope="col">Usuário</th>
-            <th scope="col">Senha</th>
-            <th scope="col">Usuário Administrador</th>
             <th scope="col">Alterar</th>
             <th scope="col">Excluir</th>
         </tr>
@@ -31,15 +29,13 @@
             <tr>
                 <th scope="row">@item.id</th>
                 <td>@item.login</td>
-                <td>@item.senha</td>
-                <td>@item.ativo</td>
                 <td>
-                    <a href="~/Login/prealterar/@item.id" class="btn btn-primary">
+                    <a href="~/Login/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
                         Alterar
                     </a>
                 </td>
                 <td>
-                    <a href="~/Login/excluir/@item.id" class="btn btn-primary">
+                    <a href="~/Login/excluir/@item.id" class="btn btn-primary" style="background-color: #021532;">
                         Excluir
                     </a>
                 </td>

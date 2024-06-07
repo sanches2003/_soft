@@ -3,25 +3,25 @@
     ViewData["Title"] = "cadastro";
 }
 
-<h1>Cadastrar Usuário</h1>
+<h1>Usuários</h1>
 <form asp-controller="Login" asp-action="salvar" method="post">
     <div class="row">
-        <div class="col-12 form-group">
+        <div class="col-1 form-group">
             <label asp-for="id"></label>
-            <input readonly type="text" asp-for="id" class="form-control" />
+            <input readonly type="text" asp-for="id" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="id" class="alert-danger"></span>
         </div>
         <div class="col-6 form-group">
             <label asp-for="login"></label>
-            <input type="text" asp-for="login" class="form-control" />
+            <input type="text" asp-for="login" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="login" class="alert-danger"></span>
         </div>
-        <div class="col-6 form-group">
+        <div class="col-5 form-group">
             <label asp-for="senha"></label>
-            <input type="password" asp-for="senha" class="form-control" />
+            <input type="password" asp-for="senha" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="senha" class="alert-danger"></span>
         </div>
-        <div class="col-6 form-group">
+        <div class="col-12 form-group">
             <label asp-for="idCargo"></label>
             <select class="form-control" asp-for="idCargo" asp-items="@ViewBag.listacargos">
                 <option>Selecione um Cargo.....</option>
@@ -34,7 +34,7 @@
         </div>  
         <br>
         <div class="col-12 form-group">
-            <input type="submit" value="salvar" class="btn btn-primary" />
+            <input type="submit" value="Salvar" class="btn btn-primary" style="background-color: #021532;" />
         </div>
         <div class="col-12 form-group" style="margin-top:50px">
             <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>

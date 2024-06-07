@@ -150,7 +150,7 @@ namespace CinemaxToledo.Controllers
                 HttpContext.Session.SetInt32("idLogin", model.id);
                 HttpContext.Session.SetString("nomeLogin", model.login);
                 HttpContext.Session.SetInt32("ativoTrue", model.ativo == false ? 1 : 0);
-                return RedirectToAction("Index", "HomeSite");
+                return RedirectToAction("Index", "Home");
             }
         }
 

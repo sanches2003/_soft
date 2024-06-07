@@ -36,7 +36,7 @@ namespace CinemaxToledo.Models
         public string cep { get; set; }
 
 
-        [MaxLength(30, ErrorMessage = "Descrição deve ter no máximo 30 caracteres!")]
+        [MaxLength(80, ErrorMessage = "Descrição deve ter no máximo 80 caracteres!")]
         [Display(Name = "Logradouro")]
         public String logradouro { get; set; }
 
@@ -52,7 +52,7 @@ namespace CinemaxToledo.Models
         [Display(Name = "Estado")]
         public String estado { get; set; }
 
-        [MaxLength(30, ErrorMessage = "Descrição deve ter no máximo 30 caracteres!")]
+        [MaxLength(50, ErrorMessage = "Descrição deve ter no máximo 50 caracteres!")]
         [Display(Name = "Complemento")]
         public String complemento { get; set; }
 

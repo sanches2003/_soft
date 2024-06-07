@@ -3,11 +3,22 @@
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Cargos</h1>
+<h1>Cargos</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-<a href="~/Cargo/cadastro" class="btn btn-info">
+<script>
+
+    function confirmExclusao(id) {
+        if (confirm("Tem certeza que deseja excluir esse Cargo?")) {
+
+            location.href = "/Cargo/excluir/" + id;
+
+        }
+    }
+</script>
+
+<a href="~/Cargo/cadastro" class="btn btn-info" style="background-color: #021532;">
     Novo
 </a>
 <br /><br />
@@ -27,12 +38,12 @@
                 <th scope="row">@item.id</th>
                 <td>@item.descricao</td>
                 <td>
-                    <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary">
+                    <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
                         Alterar
                     </a>
                 </td>
                 <td>
-                    <a href="~/Cargo/excluir/@item.id" class="btn btn-primary">
+                    <a href="~/Cargo/excluir/@item.id" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
                         Excluir
                     </a>
                 </td>
