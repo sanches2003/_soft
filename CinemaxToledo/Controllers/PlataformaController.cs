@@ -1,7 +1,7 @@
-﻿using CinemaxToledo.Models;
+﻿using CompusoftAtendimento.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     public class PlataformaController : Controller
     {

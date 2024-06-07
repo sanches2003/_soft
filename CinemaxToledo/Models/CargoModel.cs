@@ -4,7 +4,7 @@ using Repositorio.Entidades;
 using Repositorio;
 using System.ComponentModel.DataAnnotations;
 
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
     public class CargoModel
     {
@@ -32,7 +32,7 @@ namespace CinemaxToledo.Models
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Cargo cat = mapper.Map<Cargo>(model);
 
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 CargoRepositorio repositorio =
                     new CargoRepositorio(contexto);
@@ -51,7 +51,7 @@ namespace CinemaxToledo.Models
         {
             List<CargoModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 CargoRepositorio repositorio =
                     new CargoRepositorio(contexto);
@@ -65,7 +65,7 @@ namespace CinemaxToledo.Models
         {
             CargoModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 CargoRepositorio repositorio =
                     new CargoRepositorio(contexto);
@@ -78,7 +78,7 @@ namespace CinemaxToledo.Models
 
         public void excluir(int id)
         {
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 CargoRepositorio repositorio =
                     new CargoRepositorio(contexto);

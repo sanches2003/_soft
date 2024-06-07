@@ -4,7 +4,7 @@ using Repositorio.Entidades;
 using Repositorio;
 using System.ComponentModel.DataAnnotations;
 
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
         public class CategoriaProblemaModel
     {
@@ -33,7 +33,7 @@ namespace CinemaxToledo.Models
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
                 CategoriaProblema cat = mapper.Map<CategoriaProblema>(model);
 
-                using (CinemaxContexto contexto = new CinemaxContexto())
+                using (SoftContexto contexto = new SoftContexto())
                 {
                 CategoriaProblemaRepositorio repositorio =
                     new CategoriaProblemaRepositorio(contexto);
@@ -56,7 +56,7 @@ namespace CinemaxToledo.Models
             {
                 List<CategoriaProblemaModel> listamodel = null;
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-                using (CinemaxContexto contexto = new CinemaxContexto())
+                using (SoftContexto contexto = new SoftContexto())
                 {
                 CategoriaProblemaRepositorio repositorio =
                         new CategoriaProblemaRepositorio(contexto);
@@ -71,7 +71,7 @@ namespace CinemaxToledo.Models
             {
             CategoriaProblemaModel model = null;
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-                using (CinemaxContexto contexto = new CinemaxContexto())
+                using (SoftContexto contexto = new SoftContexto())
                 {
                 CategoriaProblemaRepositorio repositorio =
                         new CategoriaProblemaRepositorio(contexto);
@@ -85,7 +85,7 @@ namespace CinemaxToledo.Models
             public void excluir(int id)
             {
 
-                using (CinemaxContexto contexto = new CinemaxContexto())
+                using (SoftContexto contexto = new SoftContexto())
                 {
                 CategoriaProblemaRepositorio repositorio =
                         new CategoriaProblemaRepositorio(contexto);

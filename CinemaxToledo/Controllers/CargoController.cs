@@ -1,7 +1,8 @@
-﻿using CinemaxToledo.Models;
+﻿using CompusoftAtendimento.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     public class CargoController : Controller
     {
@@ -13,8 +14,20 @@ namespace CinemaxToledo.Controllers
         public IActionResult cadastro()
         {
             return View(new CargoModel());
+
         }
 
+        public IActionResult cadastresecargo()
+        {
+            List<CargoModel> lista = (new CargoModel()).listar();
+            ViewBag.listacargos = lista.Select(c => new SelectListItem()
+            {
+                Value = c.id.ToString(),
+                Text = c.descricao
+            });
+
+            return View(new CargoModel());
+        }
 
         //HTTPPOST quando for retornar post
         [HttpPost]
@@ -36,6 +49,28 @@ namespace CinemaxToledo.Controllers
                 }
             }
             return View("cadastro");
+        }
+
+
+        [HttpPost]
+        public IActionResult salvarcadastresecargo(CargoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    CargoModel catmodel = new CargoModel();
+                    catmodel.salvar(model);
+                    ViewBag.mensagem = "Dados salvos com sucesso!";
+                    ViewBag.classe = "alert-success";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.mensagem = "ops... Erro ao salvar!" + ex.Message + "/" + ex.InnerException;
+                    ViewBag.classe = "alert-danger";
+                }
+            }
+            return View("cadastresecargo");
         }
 
 

@@ -10,7 +10,7 @@ namespace Repositorio
 {
     public class PlataformaRepositorio : BaseRepositorio<Plataforma>
     {
-        public PlataformaRepositorio(CinemaxContexto contexto)
+        public PlataformaRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

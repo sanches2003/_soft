@@ -1,10 +1,10 @@
-﻿using CinemaxToledo.Integracao.Interfaces;
-using CinemaxToledo.Integracao.Refit;
-using CinemaxToledo.Integracao.Response;
+﻿using CompusoftAtendimento.Integracao.Interfaces;
+using CompusoftAtendimento.Integracao.Refit;
+using CompusoftAtendimento.Integracao.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

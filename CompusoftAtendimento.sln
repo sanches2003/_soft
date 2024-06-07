@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaxToledo", "CinemaxToledo\CinemaxToledo.csproj", "{A102E184-3686-4926-B9D2-CF1C3480D660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompusoftAtendimento", "CinemaxToledo\CompusoftAtendimento.csproj", "{A102E184-3686-4926-B9D2-CF1C3480D660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{4BC41BC3-F71A-4B6E-9B19-F13BB5DD85F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositorio", "Repositorio\Repositorio.csproj", "{4BC41BC3-F71A-4B6E-9B19-F13BB5DD85F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

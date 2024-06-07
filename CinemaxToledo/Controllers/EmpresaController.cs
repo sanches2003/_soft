@@ -1,8 +1,8 @@
-﻿using CinemaxToledo.Models;
+﻿using CompusoftAtendimento.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     public class EmpresaController : Controller
     {

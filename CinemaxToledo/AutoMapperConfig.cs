@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CinemaxToledo.Models;
+using CompusoftAtendimento.Models;
 using Repositorio.Entidades;
 
-namespace CinemaxToledo
+namespace CompusoftAtendimento
 {
         public class AutoMapperConfig : Profile
         {
@@ -13,8 +13,8 @@ namespace CinemaxToledo
                     cfg.CreateMap<Plataforma, PlataformaModel>();
                     cfg.CreateMap<PlataformaModel, Plataforma>();
 
-                    cfg.CreateMap<Filme, FilmeModel>();
-                    cfg.CreateMap<FilmeModel, Filme>();
+                    cfg.CreateMap<Filme, AtendimentoModel>();
+                    cfg.CreateMap<AtendimentoModel, Filme>();
 
                     cfg.CreateMap<Cargo, CargoModel>();
                     cfg.CreateMap<CargoModel, Cargo>();
@@ -27,12 +27,6 @@ namespace CinemaxToledo
 
                     cfg.CreateMap<Empresa, EmpresaModel>();
                     cfg.CreateMap<EmpresaModel, Empresa>();
-
-                    cfg.CreateMap<Venda, VendaModel>();
-                    cfg.CreateMap<VendaModel, Venda>();
-
-                    cfg.CreateMap<VendaIngresso, VendaIngressoModel>();
-                    cfg.CreateMap<VendaIngressoModel, VendaIngresso>();
 
 
 

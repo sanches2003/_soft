@@ -1,4 +1,4 @@
-﻿@model CompusoftAtendimento.Models.LoginModel
+﻿@model CompusoftAtendimento.Models.CargoModel
 @{
     Layout = "~/Views/Shared/_LayoutSite.cshtml";
 }
@@ -32,41 +32,26 @@
     </nav>
 </header>
 <div class="container-fluid mt-4">
-<h3>Usuário</h3>
-<form asp-controller="Login" asp-action="salvarcadastrese" method="post">
+<h3>Cargos</h3>
+<br />
+    <form asp-controller="Cargo" asp-action="salvarcadastresecargo" method="post">
     <div class="row">
         <div class="col-1 form-group">
             <label asp-for="id"></label>
             <input readonly type="text" asp-for="id" class="form-control" />
             <span asp-validation-for="id" class="alert-danger"></span>
         </div>
-        <div class="col-6 form-group">
-            <label asp-for="login"></label>
-                <input type="text" asp-for="login" class="form-control" style="background-color: #f2f2f2;" />
-            <span asp-validation-for="login" class="alert-danger"></span>
+        <div class="col-11 form-group">
+            <label asp-for="descricao"></label>
+            <input type="text" asp-for="descricao" class="form-control" style="background-color: #f2f2f2;" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
         </div>
-        <div class="col-5 form-group">
-            <label asp-for="senha"></label>
-                <input type="password" asp-for="senha" class="form-control" style="background-color: #f2f2f2;" />
-            <span asp-validation-for="senha" class="alert-danger"></span>
-        </div>
+        <br>
         <div class="col-12 form-group">
-            <label asp-for="idCargo"></label>
-                <select class="form-control" style="background-color: #f2f2f2;" asp-for="idCargo" asp-items="@ViewBag.listacargos">
-                <option>Selecione um Cargo.....</option>
-            </select>
-                <a href="~/Cargo/cadastresecargo" class="btn btn-info mt-2" style="background-color: #021532;">
-                    Novo Cargo
+            <input type="submit" value="Salvar" class="btn btn-primary" style="background-color: #021532;" />
+                <a href="~/Login/cadastrese" class="btn btn-info" style="background-color: #021532;">
+                    Voltar
                 </a>
-        </div>
-            <div class="col-12 form-group">
-                <input type="checkbox" asp-for="ativo" />
-                <label asp-for="ativo"></label>
-                <span asp-validation-for="ativo" class="alert-danger"></span>
-            </div>
-            <br>
-        <div class="col-12 form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" style="background-color: #021532" />
         </div>
         <div class="col-12 form-group" style="margin-top:50px">
             <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>

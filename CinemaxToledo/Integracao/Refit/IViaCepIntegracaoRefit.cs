@@ -1,7 +1,7 @@
-﻿using CinemaxToledo.Integracao.Response;
+﻿using CompusoftAtendimento.Integracao.Response;
 using Refit;
 
-namespace CinemaxToledo.Integracao.Refit
+namespace CompusoftAtendimento.Integracao.Refit
 {
     public interface IViaCepIntegracaoRefit
     {

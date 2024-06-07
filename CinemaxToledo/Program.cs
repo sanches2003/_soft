@@ -1,6 +1,6 @@
-using CinemaxToledo.Integracao;
-using CinemaxToledo.Integracao.Interfaces;
-using CinemaxToledo.Integracao.Refit;
+using CompusoftAtendimento.Integracao;
+using CompusoftAtendimento.Integracao.Interfaces;
+using CompusoftAtendimento.Integracao.Refit;
 using Microsoft.AspNetCore.Mvc;
 using Refit;
 

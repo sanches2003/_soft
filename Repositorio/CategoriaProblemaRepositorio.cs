@@ -10,7 +10,7 @@ namespace Repositorio
 {
     public class CategoriaProblemaRepositorio : BaseRepositorio<CategoriaProblema> // criar entidade!!!
     {
-        public CategoriaProblemaRepositorio(CinemaxContexto contexto)
+        public CategoriaProblemaRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

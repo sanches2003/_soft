@@ -5,7 +5,7 @@ using Repositorio.Contexto;
 using Repositorio.Entidades;
 using System.ComponentModel.DataAnnotations;
 
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
     public class EmpresaModel
     {
@@ -64,7 +64,7 @@ namespace CinemaxToledo.Models
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Empresa cat = mapper.Map<Empresa>(model);
 
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 EmpresaRepositorio repositorio =
                 new EmpresaRepositorio(contexto);
@@ -86,7 +86,7 @@ namespace CinemaxToledo.Models
         {
             List<EmpresaModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 EmpresaRepositorio repositorio =
                     new EmpresaRepositorio(contexto);
@@ -101,7 +101,7 @@ namespace CinemaxToledo.Models
         {
             EmpresaModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 EmpresaRepositorio repositorio =
                     new EmpresaRepositorio(contexto);
@@ -115,7 +115,7 @@ namespace CinemaxToledo.Models
         public void excluir(int id)
         {
 
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 EmpresaRepositorio repositorio =
                     new EmpresaRepositorio(contexto);

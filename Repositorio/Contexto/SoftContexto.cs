@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Repositorio.Contexto
 {
-    public class CinemaxContexto : DbContext
+    public class SoftContexto : DbContext
 
     {
-        public CinemaxContexto()
+        public SoftContexto()
         {
             //Criar ou atualizar o banco de dados
             this.Database.EnsureCreated();
@@ -48,7 +48,7 @@ namespace Repositorio.Contexto
 
 
 
-            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_softerr;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_compusoftatendimento;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
 
             if (!optionsBuilder.IsConfigured)

@@ -10,7 +10,7 @@ namespace Repositorio
 {
     public class LoginRepositorio : BaseRepositorio<Login>
     {
-        public LoginRepositorio(CinemaxContexto contexto)
+        public LoginRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

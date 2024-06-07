@@ -3,13 +3,13 @@ using Microsoft.Extensions.Caching.Memory;
 using Repositorio;
 using Repositorio.Contexto;
 using Repositorio.Entidades;
-using CinemaxToledo;
+using CompusoftAtendimento;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Build.Framework;
 using System.ComponentModel.DataAnnotations;
 using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
 
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
     public class PlataformaModel
     {
@@ -36,7 +36,7 @@ namespace CinemaxToledo.Models
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Plataforma cat = mapper.Map<Plataforma>(model);
 
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 PlataformaRepositorio repositorio = 
                     new PlataformaRepositorio(contexto);
@@ -55,7 +55,7 @@ namespace CinemaxToledo.Models
             {
             List<PlataformaModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 PlataformaRepositorio repositorio =
                     new PlataformaRepositorio(contexto);
@@ -69,7 +69,7 @@ namespace CinemaxToledo.Models
             {
             PlataformaModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 PlataformaRepositorio repositorio = 
                     new PlataformaRepositorio(contexto);
@@ -82,7 +82,7 @@ namespace CinemaxToledo.Models
 
             public void excluir(int id)
             {
-                using (CinemaxContexto contexto = new CinemaxContexto())
+                using (SoftContexto contexto = new SoftContexto())
                 {
                 PlataformaRepositorio repositorio =
                     new PlataformaRepositorio(contexto);

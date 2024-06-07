@@ -1,8 +1,8 @@
-﻿using CinemaxToledo.Integracao.Interfaces;
-using CinemaxToledo.Integracao.Refit;
-using CinemaxToledo.Integracao.Response;
+﻿using CompusoftAtendimento.Integracao.Interfaces;
+using CompusoftAtendimento.Integracao.Refit;
+using CompusoftAtendimento.Integracao.Response;
 
-namespace CinemaxToledo.Integracao
+namespace CompusoftAtendimento.Integracao
 {
     public class ViaCepIntegracao : IViaCepIntegracao
     {

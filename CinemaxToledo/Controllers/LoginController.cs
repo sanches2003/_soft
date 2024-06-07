@@ -1,11 +1,11 @@
-﻿using CinemaxToledo.Models;
+﻿using CompusoftAtendimento.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     public class LoginController : Controller
     {
@@ -38,6 +38,8 @@ namespace CinemaxToledo.Controllers
             return View(new LoginModel());
         }
 
+      
+
         [HttpPost]
         public IActionResult salvarcadastrese(LoginModel model)
         {
@@ -58,6 +60,7 @@ namespace CinemaxToledo.Controllers
             }
             return View("login");
         }
+
 
         //HTTPPOST quando for retornar post
         [HttpPost]
@@ -127,6 +130,7 @@ namespace CinemaxToledo.Controllers
             return (View());
 
         }
+
         public IActionResult logar(String txtlogin, String txtsenha, bool boolativo)
         {
             LoginModel model = (new LoginModel()).validarLogin(txtlogin, txtsenha);

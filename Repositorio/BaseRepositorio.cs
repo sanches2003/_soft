@@ -12,11 +12,11 @@ namespace Repositorio
     public abstract class BaseRepositorio<T> where T : class
     {
 
-        protected CinemaxContexto _contexto;
+        protected SoftContexto _contexto;
 
         private DbSet<T> _tabela;
 
-        public BaseRepositorio(CinemaxContexto contexto)
+        public BaseRepositorio(SoftContexto contexto)
         {
 
             this._contexto = contexto;

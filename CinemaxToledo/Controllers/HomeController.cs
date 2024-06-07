@@ -1,9 +1,9 @@
-﻿using CinemaxToledo.Models;
+﻿using CompusoftAtendimento.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 
-namespace CinemaxToledo.Controllers
+namespace CompusoftAtendimento.Controllers
 {
     public class HomeController : Controller
     {

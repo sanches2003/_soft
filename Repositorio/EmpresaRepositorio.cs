@@ -10,7 +10,7 @@ namespace Repositorio
 {
     public class EmpresaRepositorio : BaseRepositorio<Empresa>
     {
-        public EmpresaRepositorio(CinemaxContexto contexto)
+        public EmpresaRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CinemaxToledo.Integracao.Response
+﻿namespace CompusoftAtendimento.Integracao.Response
 {
     public class ViaCepResponse
     {

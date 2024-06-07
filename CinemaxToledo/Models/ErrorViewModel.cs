@@ -1,4 +1,4 @@
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
     public class ErrorViewModel
     {

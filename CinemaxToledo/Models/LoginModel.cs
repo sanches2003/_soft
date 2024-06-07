@@ -5,7 +5,7 @@ using Repositorio;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CinemaxToledo.Models
+namespace CompusoftAtendimento.Models
 {
     public class LoginModel
     {
@@ -32,7 +32,7 @@ namespace CinemaxToledo.Models
         public LoginModel validarLogin(string email, String senha){
 
             LoginModel model = null;
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
 
             {
                 LoginRepositorio repositorio = 
@@ -56,7 +56,7 @@ namespace CinemaxToledo.Models
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Login cat = mapper.Map<Login>(model);
 
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 LoginRepositorio repositorio =
                     new LoginRepositorio(contexto);
@@ -75,7 +75,7 @@ namespace CinemaxToledo.Models
         {
             List<LoginModel> listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 LoginRepositorio repositorio =
                     new LoginRepositorio(contexto);
@@ -89,7 +89,7 @@ namespace CinemaxToledo.Models
         {
             LoginModel model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 LoginRepositorio repositorio =
                     new LoginRepositorio(contexto);
@@ -102,7 +102,7 @@ namespace CinemaxToledo.Models
 
         public void excluir(int id)
         {
-            using (CinemaxContexto contexto = new CinemaxContexto())
+            using (SoftContexto contexto = new SoftContexto())
             {
                 LoginRepositorio repositorio =
                     new LoginRepositorio(contexto);

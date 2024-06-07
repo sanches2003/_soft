@@ -10,7 +10,7 @@ namespace Repositorio
 {
     public class CargoRepositorio : BaseRepositorio<Cargo>
     {
-        public CargoRepositorio(CinemaxContexto contexto)
+        public CargoRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

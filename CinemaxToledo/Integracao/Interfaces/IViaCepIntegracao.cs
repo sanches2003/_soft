@@ -1,6 +1,6 @@
-﻿using CinemaxToledo.Integracao.Response;
+﻿using CompusoftAtendimento.Integracao.Response;
 
-namespace CinemaxToledo.Integracao.Interfaces
+namespace CompusoftAtendimento.Integracao.Interfaces
 {
     public interface IViaCepIntegracao
     {
