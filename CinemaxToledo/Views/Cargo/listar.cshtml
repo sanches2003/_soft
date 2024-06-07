@@ -4,9 +4,19 @@
 }
 
 <h1>Listar Cargos</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">@Context.Session.GetString("nomeLogin")</p>
+        </div>
+        <div class="col-md-12">
+            <img src="~/icons/do-utilizador.png" width="26" height="26"  class="float-right" alt="Imagem">
+        </div>
+    </div>
+</div>
+
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
-
 <a href="~/Cargo/cadastro" class="btn btn-info">
     Novo
 </a>

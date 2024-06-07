@@ -12,7 +12,7 @@ namespace CinemaxToledo.Models
         [Display(Name = "Código")]
         public int id { get; set; }
 
-        [Display(Name = "Login")]
+        [Display(Name = "Usuário")]
         public String login { get; set; }
 
         [Display(Name = "Senha")]

@@ -3,23 +3,47 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] </title>
+    <title>@ViewData["Title"] - CinemaxToledo</title>
     <!-- Principal CSS do Bootstrap -->
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Principal CSS do Bootstrap -->
-    <link href="~/css/css" rel="stylesheet">
-
     <!-- Estilos customizados para esse template -->
-    <link href="~/css/blog.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/dashboard.css" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+        webkit-keyframes chartjs-render-animation {
+            from
 
+        {
+            opacity: 0.99
+        }
 
+        to {
+            opacity: 1
+        }
 
+        }
+
+        keyframes chartjs-render-animation {
+            from
+
+        {
+            opacity: 0.99
+        }
+
+        to {
+            opacity: 1
+        }
+
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }</style>
 </head>
 <body>
     <div class="container-fluid">
@@ -32,12 +56,15 @@
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
-
     <script src="~/lib/jquery/dist/popper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/jquery.mask.min.js"></script>
 
-    <script src="~/js/holder.min.js"></script>
+    <!-- Ícones -->
+    <script src="~/lib/jquery/dist/feather.min.js"></script>
+    <script src="~/js/jquery.mask.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
