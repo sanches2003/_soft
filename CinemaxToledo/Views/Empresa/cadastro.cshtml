@@ -22,14 +22,19 @@
         <div class="col-12">
             <h2>Dados</h2>
         </div>
-        <div class="col-6 form-group">
+        <div class="col-1 form-group">
+            <label asp-for="id"></label>
+            <input readonly type="text" asp-for="id" class="form-control" />
+            <span asp-validation-for="id" class="alert-danger"></span>
+        </div>
+        <div class="col-7 form-group">
             <label asp-for="razaosocial"></label>
-            <input type="text" asp-for="razaosocial" class="form-control" />
+            <input type="text" asp-for="razaosocial" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="razaosocial" class="alert-danger"></span>
         </div>
         <div class="col-4 form-group">
             <label asp-for="cnpj"></label>
-            <input id="cnpj" type="text" asp-for="cnpj" class="form-control" />
+            <input id="cnpj" type="text" asp-for="cnpj" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="cnpj" class="alert-danger"></span>
         </div>
     </div>
@@ -41,18 +46,18 @@
         </div>
         <div class="col-12 form-group">
             <label asp-for="telefone"></label>
-            <input id="telefone" type="text" asp-for="telefone" class="form-control" />
+            <input id="telefone" type="text" asp-for="telefone" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="telefone" class="alert-danger"></span>
         </div>
         <div class="col-12 form-group">
             <label asp-for="celular"></label>
-            <input id="celular" type="text" asp-for="celular" class="form-control" />
+            <input id="celular" type="text" asp-for="celular" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="celular" class="alert-danger"></span>
         </div>
 
         <div class="col-12 form-group">
             <label asp-for="email"></label>
-            <input type="email" asp-for="email" class="form-control" />
+            <input type="email" asp-for="email" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="email" class="alert-danger"></span>
         </div>
     </div>
@@ -64,44 +69,44 @@
         </div>
         <div class="col-2 form-group">
             <label asp-for="cep"></label>
-            <input id="cep" type="text" asp-for="cep" class="form-control" />
+            <input id="cep" type="text" asp-for="cep" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="cep" class="alert-danger"></span>
         </div>
 
         <div class="col-10">
             <label asp-for="logradouro"></label>
-            <input type="text" asp-for="logradouro" class="form-control" readonly />
+            <input type="text" asp-for="logradouro" class="form-control" style="background-color: #f2f2f2;" readonly />
             <span asp-validation-for="logradouro" class="alert-danger"></span>
         </div>
 
 
         <div class="col-2 form-group">
             <label asp-for="numero"></label>
-            <input type="number" asp-for="numero" class="form-control" />
+            <input type="number" asp-for="numero" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="numero" class="alert-danger"></span>
         </div>
 
         <div class="col-5">
             <label asp-for="bairro"></label>
-            <input type="text" asp-for="bairro" class="form-control" readonly />
+            <input type="text" asp-for="bairro" class="form-control" style="background-color: #f2f2f2;" readonly />
             <span asp-validation-for="bairro" class="alert-danger"></span> 
         </div>
 
         <div class="col-4">
             <label asp-for="cidade"></label>
-            <input type="text" asp-for="cidade" class="form-control" readonly />
+            <input type="text" asp-for="cidade" class="form-control" style="background-color: #f2f2f2;" readonly />
             <span asp-validation-for="cidade" class="alert-danger"></span>
         </div>
 
         <div class="col-1">
             <label asp-for="estado"></label>
-            <input type="text" asp-for="estado" class="form-control" readonly />
+            <input type="text" asp-for="estado" class="form-control" style="background-color: #f2f2f2;" readonly />
             <span asp-validation-for="estado" class="alert-danger"></span>
         </div>
 
         <div class="col-12 form-group">
             <label asp-for="complemento"></label>
-            <input type="text" asp-for="complemento" class="form-control" />
+            <input type="text" asp-for="complemento" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="complemento" class="alert-danger"></span>
         </div>
        
@@ -109,7 +114,7 @@
 
     <!-- Botão de Salvar -->
     <div class="col-12 form-group">
-        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <input type="submit" value="Salvar" class="btn btn-primary" style="background-color: #021532;" />
     </div>
     <div class="col-12 form-group" style="margin-top:50px">
         <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>

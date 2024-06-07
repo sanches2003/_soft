@@ -3,7 +3,7 @@
     ViewData["Title"] = "listar";
 }
 
-<h1>Listar Empresas</h1>
+<h1>Empresas</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
@@ -18,7 +18,7 @@
     }
 </script>
 
-<a href="~/Empresa/cadastro" class="btn btn-info">
+<a href="~/Empresa/cadastro" class="btn btn-info" style="background-color: #021532;">
     Novo
 </a>
 <br />
@@ -42,13 +42,13 @@
                 <td>@item.cnpj</td>
                 <td>
                     <a href="~/Empresa/prealterar/@item.id"
-                   class="btn btn-primary">
+                       class="btn btn-primary" style="background-color: #021532;">
                         Alterar
                     </a>
                 </td>
                 <td>
                     <a href="#"
-                   class="btn btn-primary" onclick="confirmExclusao(@item.id)">
+                       class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
                         Excluir
                     </a>
                 </td>

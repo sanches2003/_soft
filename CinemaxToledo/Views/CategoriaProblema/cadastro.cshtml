@@ -3,31 +3,23 @@
     ViewData["Title"] = "cadastro";
 }
 
-<h1>Cadastrar Categoria do Problema</h1>
+<h1>Categoria do Problema</h1>
 <br />
 <form asp-action="salvar" asp-controller="CategoriaProblema"
       method="post">
     <div class="row">
-        <div class="col-6 form-group">
+        <div class="col-1 form-group">
             <label asp-for="id"></label>
             <input readonly type="text" asp-for="id" class="form-control" />
             <span asp-validation-for="id" class="alert-danger"></span>
         </div>
-        <div class="col-6 form-group">
+        <div class="col-11 form-group">
             <label asp-for="descricao"></label>
-            <input type="text" asp-for="descricao" class="form-control" />
+            <input type="text" asp-for="descricao" class="form-control" style="background-color: #f2f2f2;" />
             <span asp-validation-for="descricao" class="alert-danger"></span>
         </div>
-        <!--
         <div class="col-12 form-group">
-            <label asp-for="idAtoresFilme"></label>
-            <select class="form-control" asp-for="idAtoresFilme" asp-items="@ViewBag.listacategorias">
-                <option>Selecione uma categoria.....</option>
-            </select>
-        </div>
-        -->
-        <div class="col-12 form-group">
-            <input type="submit" class="btn btn-primary" value="Salvar" />
+            <input type="submit" class="btn btn-primary" value="Salvar" style="background-color: #021532;" />
         </div>
         <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 

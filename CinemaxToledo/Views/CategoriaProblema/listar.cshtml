@@ -4,7 +4,7 @@
 }
 
 
-<h1>Listar Categorias do Problema</h1>
+<h1>Categorias do Problema</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
@@ -19,7 +19,7 @@
     }
 </script>
 
-<a href="~/CategoriaProblema/cadastro" class="btn btn-info">
+<a href="~/CategoriaProblema/cadastro" class="btn btn-info" style="background-color: #021532;">
     Novo
 </a>
 <br />
@@ -31,7 +31,6 @@
             <th scope="col">Categoria</th>
             <th scope="col">Alterar</th>
             <th scope="col">Excluir</th>
-            <!--<th scope="col">Filmes</th>-->
    
         </tr>
     </thead>
@@ -43,13 +42,13 @@
                 <td>@item.descricao</td>
                 <td>
                     <a href="~/CategoriaProblema/prealterar/@item.id"
-                   class="btn btn-primary">
+                       class="btn btn-primary" style="background-color: #021532;">
                         Alterar
                     </a>
                 </td>
                 <td>
                     <a href="#"
-                   class="btn btn-primary" onclick="confirmExclusao(@item.id)">
+                       class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
                         Excluir
                     </a>
                 </td>
