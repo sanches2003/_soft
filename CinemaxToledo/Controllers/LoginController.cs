@@ -47,8 +47,8 @@ namespace CinemaxToledo.Controllers
                 {
                     LoginModel catmodel = new LoginModel();
                     catmodel.salvar(model);
-                    ViewBag.mensagem = "Dados salvos com sucesso!";
-                    ViewBag.classe = "alert-success";
+                    ViewBag.mensagem = "";
+                    ViewBag.classe = "";
                 }
                 catch (Exception ex)
                 {

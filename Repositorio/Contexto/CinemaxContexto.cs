@@ -48,7 +48,7 @@ namespace Repositorio.Contexto
 
 
 
-            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_soft0;integrated security=true;Trust Server Certificate=true";
+            var stringConexao = @"Server=FELIPE_SANCHES;DataBase=_softerr;integrated security=true;Trust Server Certificate=true";
             //var stringConexao = @"Server=sql8005.site4now.net;DataBase=db_a98978_felipesanches;user id=db_a98978_felipesanches_admin;password=felipe98767";
 
             if (!optionsBuilder.IsConfigured)

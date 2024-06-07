@@ -15,6 +15,9 @@
             <li class="nav-item text-nowrap">
                 <div class="row align-items-center">
                     <div class="col-auto">
+                        <a class="text-white">Bem vindo(a) @Context.Session.GetString("nomeLogin") !</a>
+                    </div>
+                    <div class="col-auto">
                         <a class="nav-link" asp-controller="login" asp-action="sair">
                             <span class="d-inline-block ml-1">
                                 <img src="~/icons/sair.png" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
