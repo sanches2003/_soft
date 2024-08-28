@@ -1,0 +1,103 @@
+﻿@model  CinemaxToledo.Models.AtendimentoModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+<h1>Cadastrar Filme</h1>
+<br />
+<form enctype="multipart/form-data" asp-action="salvar" asp-controller="filme"
+      method="post">
+    <div class="row">
+        <div class="col-12 form-group">
+            <label asp-for="id"></label>
+            <input readonly type="text" asp-for="id" class="form-control" />
+            <span asp-validation-for="id" class="alert-danger"></span>
+        </div>
+            <div class="col-6 form-group">
+                <label asp-for="titulo"></label>
+                <input type="text" asp-for="titulo" class="form-control" />
+                <span asp-validation-for="titulo" class="alert-danger"></span>
+            </div>
+        <div class="col-6 form-group">
+            <label asp-for="descricao"></label>
+            <input type="text" asp-for="descricao" class="form-control" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
+        </div>
+        <div class="col-6 form-group">
+            <a>Início do Cartaz</a>
+            <label asp-for="inicioCartaz" class="cartaz1"></label>
+                <input type="text" asp-for="inicioCartaz" class="form-control cartaz1" />
+            <span asp-validation-for="inicioCartaz" class="alert-danger cartaz1"></span>
+        </div>
+        <div class="col-6 form-group">
+            <a>Final do Cartaz</a>
+            <label asp-for="finalCartaz" class="cartaz2"></label>
+            <input type="text" asp-for="finalCartaz" class="form-control cartaz2" />
+            <span asp-validation-for="finalCartaz" class="alert-danger cartaz2"></span>
+        </div>
+            <div class="col-6 form-group">
+                <label asp-for="valorInteira"></label>
+                <input type="text" asp-for="valorInteira" class="form-control" />
+                <span asp-validation-for="valorInteira" class="alert-danger"></span>
+            </div>
+            <div class="col-6 form-group">               
+                <label asp-for="valorMeia"></label>
+                <input type="text" asp-for="valorMeia" class="form-control" />
+                <span asp-validation-for="valorMeia" class="alert-danger"></span>
+            </div>
+        <div class="col-6 form-group">
+            <label asp-for="duracao"></label>
+            <input type="text" asp-for="duracao" class="form-control" />
+            <span asp-validation-for="duracao" class="alert-danger"></span>
+        </div>
+        <div class="col-6 form-group">
+            <label asp-for="idCategoria"></label>
+            <select class="form-control" asp-for="idCategoria" asp-items="@ViewBag.listacategorias">
+                <option>Selecione uma categoria.....</option>
+            </select>
+            <span asp-validation-for="valorInteira" class="alert-danger"></span>
+            <span asp-validation-for="valorMeia" class="alert-danger"></span>
+        </div>
+        <div class="col-6 form-group">
+            <label asp-for="idEstudio"></label>
+            <select class="form-control" asp-for="idEstudio" asp-items="@ViewBag.listaestudios">
+                <option>Selecione um Estúdio.....</option>
+            </select>
+        </div>
+        <div class="col-6 form-group">
+            <label asp-for="idAtores"></label>
+            <select class="form-control" asp-for="idAtores" asp-items="@ViewBag.listaatores">
+                <option>Selecione um ator.....</option>
+            </select>
+        </div>
+           <div class="col-12 form group">
+               <label>Imagem</label>
+               <input type="hidden" asp-for="imagem" value="teste1"/>
+               <input id="customFile" type="file" asp-for="arquivoImagem" class="form-control"/>
+            <span asp-validation-for="arquivoImagem" class="alert-danger"></span>
+           </div>
+           <br>
+        <div class="col-12 form-group">
+            <input type="checkbox" asp-for="estaDisponivel" />
+            <label asp-for="estaDisponivel"></label>
+            <span asp-validation-for="estaDisponivel" class="alert-danger"></span>
+        </div>
+           <br>
+        <div class="col-12 form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+
+        <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+    </div>
+</form>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            $('.cartaz1').mask('00/00/0000')
+            $('.cartaz2').mask('00/00/0000')
+        })
+    </script>
+}
