@@ -13,6 +13,9 @@ namespace CompusoftAtendimento
                     cfg.CreateMap<Plataforma, PlataformaModel>();
                     cfg.CreateMap<PlataformaModel, Plataforma>();
 
+                    cfg.CreateMap<FormaAtendimento, FormaAtendimentoModel>();
+                    cfg.CreateMap<FormaAtendimentoModel, FormaAtendimento>();
+
                     cfg.CreateMap<Cargo, CargoModel>();
                     cfg.CreateMap<CargoModel, Cargo>();
 
@@ -33,7 +36,6 @@ namespace CompusoftAtendimento
 
                     cfg.CreateMap<Pendencia, PendenciaModel>();
                     cfg.CreateMap<PendenciaModel, Pendencia>();
-
                 });
 
                 return config;

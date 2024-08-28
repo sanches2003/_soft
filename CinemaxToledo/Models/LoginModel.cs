@@ -4,6 +4,7 @@ using Repositorio.Entidades;
 using Repositorio;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompusoftAtendimento.Models
 {
@@ -44,12 +45,7 @@ namespace CompusoftAtendimento.Models
 
         public LoginModel salvar(LoginModel model)
         {
-            /*
-            Login cat = new Login();
-            cat.id = model.id;
-            cat.descricao = model.descricao;
-            */
-
+            
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Login cat = mapper.Map<Login>(model);
 
@@ -107,6 +103,11 @@ namespace CompusoftAtendimento.Models
                 repositorio.Excluir(cat);
                 contexto.SaveChanges();
             }
+        }
+
+        public bool PodeExcluir(int idUsuarioLogado, int idUsuarioParaExcluir)
+        {
+            return idUsuarioLogado != idUsuarioParaExcluir;
         }
     }
 }

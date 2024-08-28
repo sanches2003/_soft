@@ -50,7 +50,6 @@ namespace CompusoftAtendimento.Controllers
             return View("cadastresecargo");
         }
 
-        //HTTPPOST quando for retornar post
         [HttpPost]
         public IActionResult salvar(CargoModel model)
         {
@@ -69,7 +68,7 @@ namespace CompusoftAtendimento.Controllers
                     ViewBag.classe = "alert-danger";
                 }
             }
-            return View("cadastro");
+            return RedirectToAction("listar");
         }
  
         public IActionResult listar()

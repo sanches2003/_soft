@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EmpresaModel>
+﻿@model IEnumerable<FormaAtendimentoModel>
 @{
     ViewData["Title"] = "listar";
 }
@@ -6,8 +6,8 @@
 <div class="container">
     <!-- Estrutura flexível para o título e o botão -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="mb-0">Empresas</h1>
-        <a href="~/Empresa/cadastro" class="btn btn-info" style="background-color: #021532; border-color: #021532;">
+        <h1 class="mb-0">Formas de Atendimento</h1>
+        <a href="~/formaatendimento/cadastro" class="btn btn-info" style="background-color: #021532; border-color: #021532;">
             Novo
         </a>
     </div>
@@ -16,8 +16,8 @@
 
     <script>
         function confirmExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir essa empresa?")) {
-                location.href = "/Empresa/excluir/" + id;
+            if (confirm("Tem certeza que deseja excluir essa forma de atendimento?")) {
+                location.href = "/FormaAtendimento/excluir/" + id;
             }
         }
     </script>
@@ -26,8 +26,7 @@
         <thead>
             <tr>
                 <th scope="col">Código</th>
-                <th scope="col">Razão Social</th>
-                <th scope="col">CNPJ</th>
+                <th scope="col">Descrição</th>
                 <th scope="col">Alterar</th>
                 <th scope="col">Excluir</th>
             </tr>
@@ -37,15 +36,14 @@
             {
                 <tr>
                     <th scope="row">@item.id</th>
-                    <td>@item.razaosocial</td>
-                    <td>@item.cnpj</td>
+                    <td>@item.descricao</td>
                     <td>
-                        <a href="~/Empresa/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532; border-color: #021532;">
+                        <a href="~/formaatendimento/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532; border-color: #021532;">
                             Alterar
                         </a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532; border-color: #021532;">
+                        <a href="~/formaatendimento/excluir/@item.id" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532; border-color: #021532;">
                             Excluir
                         </a>
                     </td>

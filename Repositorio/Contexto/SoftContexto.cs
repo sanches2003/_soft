@@ -20,11 +20,11 @@ namespace Repositorio.Contexto
 
         public DbSet<Plataforma> plataformas { get; set; }
 
+        public DbSet<FormaAtendimento> formaatendimento { get; set; }
+
         public DbSet<Login> login { get; set; }
 
         public DbSet<CategoriaProblema> categoriasproblemas { get; set; }
-
-        public DbSet<Filme> filme { get; set; }
 
         public DbSet<Cargo> cargo { get; set; }
 
@@ -61,6 +61,12 @@ namespace Repositorio.Contexto
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Plataforma>(entidade =>
+            {
+                entidade.HasKey(e => e.id);// definindo: chave primaria
+                entidade.Property(e => e.descricao).HasMaxLength(30);//qtd max caracteres
+            });
+
+            modelBuilder.Entity<FormaAtendimento>(entidade =>
             {
                 entidade.HasKey(e => e.id);// definindo: chave primaria
                 entidade.Property(e => e.descricao).HasMaxLength(30);//qtd max caracteres
@@ -145,7 +151,7 @@ namespace Repositorio.Contexto
 
             modelBuilder.Entity<Cargo>(entidade => {
                 entidade.HasKey(e => e.id);
-                entidade.Property(e => e.descricao).HasMaxLength(20);               
+                entidade.Property(e => e.descricao).HasMaxLength(30);               
     
             });
 
@@ -158,12 +164,12 @@ namespace Repositorio.Contexto
                 entidade.Property(e => e.celular).HasMaxLength(20);
                 entidade.Property(e => e.email).HasMaxLength(150);
                 entidade.Property(e => e.cep).HasMaxLength(150);
-                entidade.Property(e => e.logradouro).HasMaxLength(30);
+                entidade.Property(e => e.logradouro).HasMaxLength(80);
                 entidade.Property(e => e.numero).HasMaxLength(20);
                 entidade.Property(e => e.bairro).HasMaxLength(30);
                 entidade.Property(e => e.cidade).HasMaxLength(30);
                 entidade.Property(e => e.estado).HasMaxLength(30);
-                entidade.Property(e => e.complemento).HasMaxLength(30);
+                entidade.Property(e => e.complemento).HasMaxLength(80);
 
             });
 

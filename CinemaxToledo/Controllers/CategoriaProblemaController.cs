@@ -44,7 +44,7 @@ namespace CompusoftAtendimento.Controllers
 
             }
 
-            return View("cadastro", model);
+            return RedirectToAction("listar");
         }
 
 
@@ -61,19 +61,6 @@ namespace CompusoftAtendimento.Controllers
             return View("cadastro", model.selecionar(id));
         }
 
-        /*
-        public IActionResult prealterar(int id)
-        {
-            CategoriaProblemaModel model = new CategoriaProblemaModel();
-            ***List<FilmeModel> lista = (new FilmeModel()).listar();
-            ViewBag.listafilmes = lista.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.descricao
-            });
-            return View("cadastro", model.selecionar(id));
-        }
-        */
         public IActionResult excluir(int id)
         {
             CategoriaProblemaModel model = new CategoriaProblemaModel();

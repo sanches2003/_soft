@@ -3,43 +3,44 @@
     ViewData["Title"] = "listar";
 }
 
-<h1>Usuários</h1>
-<br />
-<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+<div class="container">
+    <!-- Estrutura flexível para o título e o botão -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Usuários</h1>
+        <a href="~/login/cadastro" class="btn btn-info" style="background-color: #021532; border-color: #021532;">
+            Novo
+        </a>
+    </div>
 
-<a href="~/login/cadastro" class="btn btn-info" style="background-color: #021532;">
-    Novo
-</a>
+    <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-<br />
-<br />
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Usuário</th>
-            <th scope="col">Alterar</th>
-            <th scope="col">Excluir</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th scope="row">@item.id</th>
-                <td>@item.login</td>
-                <td>
-                    <a href="~/Login/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
-                        Alterar
-                    </a>
-                </td>
-                <td>
-                    <a href="#" class="btn btn-primary" style="background-color: #021532;">
-                        Excluir
-                    </a>
-                </td>
+                <th scope="col">Código</th>
+                <th scope="col">Usuário</th>
+                <th scope="col">Alterar</th>
+                <th scope="col">Excluir</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.id</th>
+                    <td>@item.login</td>
+                    <td>
+                        <a href="~/Login/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532; border-color: #021532;">
+                            Alterar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-primary" style="background-color: #021532; border-color: #021532;">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
