@@ -13,9 +13,6 @@ namespace CompusoftAtendimento
                     cfg.CreateMap<Plataforma, PlataformaModel>();
                     cfg.CreateMap<PlataformaModel, Plataforma>();
 
-                    cfg.CreateMap<Filme, AtendimentoModel>();
-                    cfg.CreateMap<AtendimentoModel, Filme>();
-
                     cfg.CreateMap<Cargo, CargoModel>();
                     cfg.CreateMap<CargoModel, Cargo>();
 
@@ -28,13 +25,15 @@ namespace CompusoftAtendimento
                     cfg.CreateMap<Empresa, EmpresaModel>();
                     cfg.CreateMap<EmpresaModel, Empresa>();
 
+                    cfg.CreateMap<Atendimento, AtendimentoModel>();
+                    cfg.CreateMap<AtendimentoModel, Atendimento>();
 
+                    cfg.CreateMap<Status, StatusModel>();
+                    cfg.CreateMap<StatusModel, Status>();
 
-                    //se precisar mapear:
-                    /*
-                    .ForMember(dest => dest.id, opt => opt.MapFrom(src => src.codigo))
-                    .ForMember(dest => dest.descricao, opt => opt.MapFrom(src => src.nome))
-                    */
+                    cfg.CreateMap<Pendencia, PendenciaModel>();
+                    cfg.CreateMap<PendenciaModel, Pendencia>();
+
                 });
 
                 return config;

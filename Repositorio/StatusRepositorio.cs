@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    public class AtendimentoRepositorio : BaseRepositorio<Atendimento> // criar entidade!!!
+    public class StatusRepositorio : BaseRepositorio<Status>
     {
-        public AtendimentoRepositorio(SoftContexto contexto)
+       public StatusRepositorio(SoftContexto contexto)
             : base(contexto) { }
     }
 }

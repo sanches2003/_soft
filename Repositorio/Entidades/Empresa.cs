@@ -10,6 +10,10 @@ namespace Repositorio.Entidades
 
     public class Empresa
     {
+        public Empresa()
+        {
+            this.atendimentos = new HashSet<Atendimento>();
+        }
 
         public int id { get; set; }
 
@@ -36,6 +40,8 @@ namespace Repositorio.Entidades
         public String estado { get; set; }
 
         public String complemento { get; set; }
+
+        public virtual ICollection<Atendimento> atendimentos { get; set; }
 
 
 

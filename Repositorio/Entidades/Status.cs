@@ -10,11 +10,12 @@ namespace Repositorio.Entidades
     {
         public Status()
         {
-            this.vendas = new HashSet<Venda>();
+            this.atendimentos = new HashSet<Atendimento>();
         }
+
         public int id { get; set; }
         public String descricao { get; set; }
 
-        public virtual ICollection<Venda> vendas { get; set; }
+        public virtual ICollection<Atendimento> atendimentos { get; set; }
     }
 }

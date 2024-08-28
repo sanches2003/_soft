@@ -1,27 +1,27 @@
-﻿@model IEnumerable<CargoModel>
+﻿@model IEnumerable<StatusModel>
 @{
     ViewData["Title"] = "listar";
 }
 
-<h1>Cargos</h1>
+<h1>Status</h1>
 <br />
 <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
 <script>
 
     function confirmExclusao(id) {
-        if (confirm("Tem certeza que deseja excluir esse Cargo?")) {
+        if (confirm("Tem certeza que deseja excluir este status?")) {
 
-            location.href = "/Cargo/excluir/" + id;
+            location.href = "/Status/excluir/" + id;
 
         }
     }
 </script>
 
-<a href="~/Cargo/cadastro" class="btn btn-info" style="background-color: #021532;">
+<a href="~/status/cadastro" class="btn btn-info" style="background-color: #021532;">
     Novo
-</a>
-<br />
+    </a>
+    <br />
 <br />
 <table class="table table-striped">
     <thead>
@@ -39,16 +39,17 @@
                 <th scope="row">@item.id</th>
                 <td>@item.descricao</td>
                 <td>
-                    <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
+                    <a href="~/status/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
                         Alterar
                     </a>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
-                        Excluir
+                    <a href="~/status/excluir/@item.id" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
+                    Excluir
                     </a>
-                </td>
+                </td>          
             </tr>
         }
     </tbody>
 </table>
+

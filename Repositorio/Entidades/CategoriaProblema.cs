@@ -8,15 +8,17 @@ namespace Repositorio.Entidades
 {
     public class CategoriaProblema
     {
-     
+        public CategoriaProblema()
+        {
+            this.atendimentos = new HashSet<Atendimento>();
+        }
 
+    
         public int id { get; set; }
 
         public String descricao { get; set; }
 
-        //Criar a lista de filme respectiva ao atores:
+        public virtual ICollection<Atendimento> atendimentos { get; set; }
 
-
-        
     }
 }

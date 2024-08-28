@@ -1,10 +1,10 @@
 ﻿using CompusoftAtendimento.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CompusoftAtendimento.Controllers
 {
-    public class CargoController : Controller
+    public class StatusController : Controller
     {
         public IActionResult Index()
         {
@@ -13,52 +13,19 @@ namespace CompusoftAtendimento.Controllers
 
         public IActionResult cadastro()
         {
-            return View(new CargoModel());
+            return View(new StatusModel());
 
-        }
-
-        public IActionResult cadastresecargo()
-        {
-            List<CargoModel> lista = (new CargoModel()).listar();
-            ViewBag.listacargos = lista.Select(c => new SelectListItem()
-            {
-                Value = c.id.ToString(),
-                Text = c.descricao
-            });
-
-            return View(new CargoModel());
-        }
-
-        [HttpPost]
-        public IActionResult salvarcadastresecargo(CargoModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    CargoModel catmodel = new CargoModel();
-                    catmodel.salvar(model);
-                    ViewBag.mensagem = "Dados salvos com sucesso!";
-                    ViewBag.classe = "alert-success";
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.mensagem = "ops... Erro ao salvar!" + ex.Message + "/" + ex.InnerException;
-                    ViewBag.classe = "alert-danger";
-                }
-            }
-            return View("cadastresecargo");
         }
 
         //HTTPPOST quando for retornar post
         [HttpPost]
-        public IActionResult salvar(CargoModel model)
+        public IActionResult salvar(StatusModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    CargoModel catmodel = new CargoModel();
+                    StatusModel catmodel = new StatusModel();
                     catmodel.salvar(model);
                     ViewBag.mensagem = "Dados salvos com sucesso!";
                     ViewBag.classe = "alert-success";
@@ -71,23 +38,23 @@ namespace CompusoftAtendimento.Controllers
             }
             return View("cadastro");
         }
- 
+
         public IActionResult listar()
         {
-            CargoModel catModel = new CargoModel();
-            List<CargoModel> lista = catModel.listar();
+            StatusModel catModel = new StatusModel();
+            List<StatusModel> lista = catModel.listar();
             return View(lista); //passando a lista por parametro para a view
         }
 
         public IActionResult prealterar(int id)
         {
-            CargoModel model = new CargoModel();
+            StatusModel model = new StatusModel();
             return View("cadastro", model.selecionar(id));
         }
 
         public IActionResult excluir(int id)
         {
-            CargoModel model = new CargoModel();
+            StatusModel model = new StatusModel();
             try
             {
                 model.excluir(id);

@@ -26,9 +26,6 @@ namespace CompusoftAtendimento.Models
 
         public CargoModel? cargo { get; set; }
 
-
-
-
         public LoginModel validarLogin(string email, String senha){
 
             LoginModel model = null;

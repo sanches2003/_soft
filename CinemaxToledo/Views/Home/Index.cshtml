@@ -1,11 +1,137 @@
-﻿
-@{
-    
+﻿@{
     ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">COMPUSOFT ATENDIMENTO</h1>
-    <p>Bem vindo(a)! @Context.Session.GetString("nomeLogin")</p>
+<style>
+    .align-left {
+        text-align: left;
+    }
+
+    .bold-almost {
+        font-weight: 600; /* Valor quase negrito */
+    }
+
+    .custom-button {
+        display: inline-block; /* Para que o botão não ocupe toda a largura */
+        padding: 10px 20px; /* Tamanho do botão */
+        font-size: 16px; /* Tamanho da fonte */
+        font-weight: 600; /* Font-weight igual ao título */
+        color: white; /* Cor do texto branca */
+        background-color: green; /* Cor de fundo verde */
+        border: 2px solid green; /* Borda verde */
+        border-radius: 5px; /* Bordas arredondadas */
+        text-decoration: none; /* Remove o sublinhado padrão */
+        text-align: center; /* Alinha o texto no centro do botão */
+        cursor: pointer; /* Muda o cursor para indicar um link clicável */
+    }
+
+        .custom-button:hover {
+            text-decoration: underline; /* Sublinha o texto ao passar o mouse */
+        }
+
+    .tab-container {
+        margin-top: 20px;
+    }
+
+    .tab {
+        display: inline-flex; /* Flexível para incluir o botão de exclusão */
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+        margin-right: 10px;
+        padding: 10px 40px; /* Aumenta o comprimento das abas */
+        background-color: white; /* Cor de fundo branca */
+        color: black; /* Cor do texto preta */
+        border: 2px solid grey; /* Borda cinza */
+        border-radius: 5px; /* Bordas arredondadas */
+        cursor: pointer; /* Muda o cursor para indicar um link clicável */
+        font-size: 16px; /* Tamanho da fonte */
+        text-align: center; /* Alinha o texto no centro da aba */
+        position: relative; /* Para posicionar o botão de exclusão */
+    }
+
+        .tab.active {
+            background-color: green; /* Fundo verde para a aba ativa */
+            color: white; /* Texto branco para a aba ativa */
+            border: 2px solid green; /* Borda verde para a aba ativa */
+        }
+
+        .tab .close-btn {
+            position: absolute; /* Posiciona o botão de exclusão */
+            top: 50%; /* Centraliza verticalmente */
+            right: 10px; /* Espaço da borda direita */
+            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+            background: none; /* Sem fundo */
+            color: black; /* Cor do texto preta */
+            border: none; /* Remove a borda padrão */
+            font-size: 14px; /* Tamanho da fonte do botão */
+            cursor: pointer; /* Muda o cursor para indicar um botão clicável */
+        }
+
+            .tab .close-btn:hover {
+                color: darkgray; /* Cor do texto ao passar o mouse */
+            }
+
+    .content-container {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid grey; /* Borda cinza ao redor do container */
+        border-radius: 5px; /* Bordas arredondadas */
+        background-color: #f9f9f9; /* Cor de fundo do container */
+    }
+</style>
+
+<div class="align-left">
+    <h1 class="display-4 bold-almost">ATENDIMENTO</h1>
+    <a href="#" class="custom-button" id="newAttButton">Novo Atendimento</a>
+    <div id="tabContainer" class="tab-container"></div>
+    <div id="contentContainer" class="content-container">
+        <p>Forma de Atendimento</p> <!-- Texto adicionado -->
+    </div>
 </div>
- 
+
+<script>
+    let tabCount = 0;
+    const maxTabs = 5;
+
+    document.getElementById('newAttButton').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Verifica se o número máximo de abas foi alcançado
+        if (tabCount >= maxTabs) {
+            alert('Número máximo de atendimentos alcançado.');
+            return;
+        }
+
+        // Cria uma nova aba
+        tabCount++;
+        const tab = document.createElement('div');
+        tab.className = 'tab';
+        tab.textContent = tabCount;
+
+        // Cria um botão de exclusão
+        const closeButton = document.createElement('button');
+        closeButton.className = 'close-btn';
+        closeButton.textContent = 'X';
+
+        // Adiciona o botão de exclusão à aba
+        tab.appendChild(closeButton);
+
+        // Adiciona a nova aba ao contêiner
+        document.getElementById('tabContainer').appendChild(tab);
+
+        // Adiciona um evento de clique para a aba
+        tab.addEventListener('click', function () {
+            // Remove a classe 'active' de todas as abas
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+
+            // Adiciona a classe 'active' à aba clicada
+            this.classList.add('active');
+        });
+
+        // Adiciona um evento de clique para o botão de exclusão
+        closeButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Evita que o clique no botão de exclusão ative a aba
+            tab.remove(); // Remove a aba
+            tabCount--; // Decrementa o contador de abas
+        });
+    });
+</script>
