@@ -6,16 +6,14 @@
     <nav class="navbar bg-dark" aria-label="breadcrumb" style="height: 50px;">
         <a class="font-weight-bold bg-dark" style="height: 40px;">
             <h4 href="~/HomeSite/Index">
-                <span style="color: white;">COMPU</span>
-                <span style="color: gray;">SOFT</span>
-                <span style="color: white;">ATENDIMENTO</span>
+                <span style="color: white;">COMPU</span><span style="color: gray;">SOFT</span> <span style="color: white;">ATENDIMENTO</span>
             </h4>
         </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item text-nowrap">
                 <div class="row align-items-center">
                     <div class="col-auto">
-                        <a class="text-white">Bem vindo(a) @Context.Session.GetString("nomeLogin") !</a>
+                        <a class="text-white">Bem vindo(a) @Context.Session.GetString("nomeLogin")!</a>
                     </div>
                     <div class="col-auto">
                         <a class="nav-link" asp-controller="login" asp-action="sair">

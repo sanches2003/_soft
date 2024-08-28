@@ -42,7 +42,7 @@ namespace CompusoftAtendimento.Controllers
 
             }
 
-            return View("cadastro", model);
+            return RedirectToAction("listar");
         }
 
 

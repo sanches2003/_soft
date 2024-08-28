@@ -29,29 +29,6 @@ namespace CompusoftAtendimento.Controllers
             return View(new CargoModel());
         }
 
-        //HTTPPOST quando for retornar post
-        [HttpPost]
-        public IActionResult salvar(CargoModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    CargoModel catmodel = new CargoModel();
-                    catmodel.salvar(model);
-                    ViewBag.mensagem = "Dados salvos com sucesso!";
-                    ViewBag.classe = "alert-success";
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.mensagem = "ops... Erro ao salvar!" + ex.Message + "/" + ex.InnerException;
-                    ViewBag.classe = "alert-danger";
-                }
-            }
-            return View("cadastro");
-        }
-
-
         [HttpPost]
         public IActionResult salvarcadastresecargo(CargoModel model)
         {
@@ -72,6 +49,28 @@ namespace CompusoftAtendimento.Controllers
             }
             return View("cadastresecargo");
         }
+
+        [HttpPost]
+        public IActionResult salvar(CargoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    CargoModel catmodel = new CargoModel();
+                    catmodel.salvar(model);
+                    ViewBag.mensagem = "Dados salvos com sucesso!";
+                    ViewBag.classe = "alert-success";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.mensagem = "ops... Erro ao salvar!" + ex.Message + "/" + ex.InnerException;
+                    ViewBag.classe = "alert-danger";
+                }
+            }
+            return RedirectToAction("listar");
+        }
+
 
 
         public IActionResult listar()

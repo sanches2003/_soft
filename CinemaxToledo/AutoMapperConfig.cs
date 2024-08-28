@@ -13,6 +13,9 @@ namespace CompusoftAtendimento
                     cfg.CreateMap<Plataforma, PlataformaModel>();
                     cfg.CreateMap<PlataformaModel, Plataforma>();
 
+                    cfg.CreateMap<FormaAtendimento, FormaAtendimentoModel>();
+                    cfg.CreateMap<FormaAtendimentoModel, FormaAtendimento>();
+
                     cfg.CreateMap<Filme, AtendimentoModel>();
                     cfg.CreateMap<AtendimentoModel, Filme>();
 
@@ -27,8 +30,6 @@ namespace CompusoftAtendimento
 
                     cfg.CreateMap<Empresa, EmpresaModel>();
                     cfg.CreateMap<EmpresaModel, Empresa>();
-
-
 
                     //se precisar mapear:
                     /*

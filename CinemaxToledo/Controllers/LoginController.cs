@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace CompusoftAtendimento.Controllers
 {
@@ -38,7 +39,6 @@ namespace CompusoftAtendimento.Controllers
             return View(new LoginModel());
         }
 
-      
 
         [HttpPost]
         public IActionResult salvarcadastrese(LoginModel model)
@@ -62,7 +62,6 @@ namespace CompusoftAtendimento.Controllers
         }
 
 
-        //HTTPPOST quando for retornar post
         [HttpPost]
         public IActionResult salvar(LoginModel model)
         {
@@ -81,7 +80,7 @@ namespace CompusoftAtendimento.Controllers
                     ViewBag.classe = "alert-danger";
                 }
             }
-            return View("cadastro");
+            return RedirectToAction("listar");
         }
   
 
@@ -91,7 +90,7 @@ namespace CompusoftAtendimento.Controllers
             LoginModel catModel = new LoginModel();
             List<LoginModel> lista = catModel.listar();
 
-            return View(lista); //passando a lista por parametro para a view
+            return View(lista); 
         }
 
         public IActionResult prealterar(int id)
@@ -106,25 +105,6 @@ namespace CompusoftAtendimento.Controllers
             return View("cadastro", model.selecionar(id));
         }
 
-        public IActionResult excluir(int id)
-        {
-            LoginModel model = new LoginModel();
-            try
-            {
-                model.excluir(id);
-                ViewBag.mensagem = "Dados excluídos com sucesso!";
-                ViewBag.classe = "alert-success";
-            }
-            catch (Exception ex)
-            {
-                ViewBag.mensagem = "Ops... Não foi possível excluir!" + ex.Message;
-                ViewBag.classe = "alert-danger";
-            }
-            return View("listar", model.listar());
-
-          
-        }
-
         public IActionResult login()
         {
             return (View());
@@ -136,14 +116,14 @@ namespace CompusoftAtendimento.Controllers
             LoginModel model = (new LoginModel()).validarLogin(txtlogin, txtsenha);
             if (model == null)
             {
-                //não encontrou:
+                
                 ViewBag.mensagem = "Dados inválidos";
-                //ViewBag.class = "alert-danger";
+                
                 return View("login");
             }
             else if (model.ativo==true)
             {
-                //encontrou
+                
                 HttpContext.Session.SetInt32("idLogin", model.id );
                 HttpContext.Session.SetString("nomeLogin", model.login);
                 HttpContext.Session.SetInt32("ativoTrue", model.ativo == true?1:0);
@@ -160,13 +140,40 @@ namespace CompusoftAtendimento.Controllers
 
         public IActionResult sair()
         {
-            //O que ele faz: 
-            //Limpa a sessão;
             HttpContext.Session.Clear();
 
-            //Redireciona para o Login
             return RedirectToAction("login", "Login");
 
         }
+
+        public IActionResult excluir(int id)
+        {
+           
+            int? idLogin = HttpContext.Session.GetInt32("idLogin");
+
+            LoginModel model = new LoginModel();
+
+            if (idLogin.HasValue && idLogin.Value == id)
+            {
+                ViewBag.mensagem = "Você não pode excluir seu próprio usuário!";
+                ViewBag.classe = "alert-danger";
+                return View("listar", model.listar());
+            }
+
+            try
+            {
+                model.excluir(id);
+                ViewBag.mensagem = "Dados excluídos com sucesso!";
+                ViewBag.classe = "alert-success";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.mensagem = "Ops... Não foi possível excluir! " + ex.Message;
+                ViewBag.classe = "alert-danger";
+            }
+
+            return View("listar", model.listar());
+        }
+
     }
 }

@@ -3,52 +3,53 @@
     ViewData["Title"] = "listar";
 }
 
-<h1>Cargos</h1>
-<br />
-<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+<!-- Container do Bootstrap -->
+<div class="container">
+    <!-- Estrutura flexível para o título e o botão -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Cargos</h1>
+        <a href="~/Cargo/cadastro" class="btn btn-info" style="background-color: #021532; border-color: #021532;">
+            Novo
+        </a>
+    </div>
 
-<script>
+    <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
 
-    function confirmExclusao(id) {
-        if (confirm("Tem certeza que deseja excluir esse Cargo?")) {
-
-            location.href = "/Cargo/excluir/" + id;
-
+    <script>
+        function confirmExclusao(id) {
+            if (confirm("Tem certeza que deseja excluir esse Cargo?")) {
+                location.href = "/Cargo/excluir/" + id;
+            }
         }
-    }
-</script>
+    </script>
 
-<a href="~/Cargo/cadastro" class="btn btn-info" style="background-color: #021532;">
-    Novo
-</a>
-<br />
-<br />
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Alterar</th>
-            <th scope="col">Excluir</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th scope="row">@item.id</th>
-                <td>@item.descricao</td>
-                <td>
-                    <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532;">
-                        Alterar
-                    </a>
-                </td>
-                <td>
-                    <a href="~/Cargo/excluir/@item.id" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532;">
-                        Excluir
-                    </a>
-                </td>
+                <th scope="col">Código</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Alterar</th>
+                <th scope="col">Excluir</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.id</th>
+                    <td>@item.descricao</td>
+                    <td>
+                        <a href="~/Cargo/prealterar/@item.id" class="btn btn-primary" style="background-color: #021532; border-color: #021532;">
+                            Alterar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="~/Cargo/excluir/@item.id" class="btn btn-primary" onclick="confirmExclusao(@item.id)" style="background-color: #021532; border-color: #021532;">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

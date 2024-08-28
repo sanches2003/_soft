@@ -13,7 +13,7 @@ namespace CompusoftAtendimento.Models
         public int id { get; set; }
 
 
-        [MaxLength(50, ErrorMessage = "Descrição deve ter no máximo 50 caracteres!")]
+        [MaxLength(30, ErrorMessage = "Descrição deve ter no máximo 30 caracteres!")]
         [Display(Name = "Razão Social")] 
         public String razaosocial { get; set; }
 
@@ -52,7 +52,7 @@ namespace CompusoftAtendimento.Models
         [Display(Name = "Estado")]
         public String estado { get; set; }
 
-        [MaxLength(50, ErrorMessage = "Descrição deve ter no máximo 50 caracteres!")]
+        [MaxLength(80, ErrorMessage = "Descrição deve ter no máximo 80 caracteres!")]
         [Display(Name = "Complemento")]
         public String complemento { get; set; }
 

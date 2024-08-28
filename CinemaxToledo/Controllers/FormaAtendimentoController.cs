@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CompusoftAtendimento.Controllers
 {
-    public class PlataformaController : Controller
+    public class FormaAtendimentoController : Controller
     {
         public IActionResult Index()
         {
@@ -12,18 +12,18 @@ namespace CompusoftAtendimento.Controllers
 
         public IActionResult cadastro ()
         {
-            return View(new PlataformaModel());
+            return View(new FormaAtendimentoModel());
         }
 
 
         [HttpPost]
-        public IActionResult salvar(PlataformaModel model)
+        public IActionResult salvar(FormaAtendimentoModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {          
-                    PlataformaModel catmodel = new PlataformaModel();
+                    FormaAtendimentoModel catmodel = new FormaAtendimentoModel();
                     catmodel.salvar(model);
                     ViewBag.mensagem = "Dados salvos com sucesso!";
                     ViewBag.classe = "alert-success";
@@ -40,20 +40,20 @@ namespace CompusoftAtendimento.Controllers
         
        public IActionResult listar()
         {
-            PlataformaModel catModel = new PlataformaModel();
-            List<PlataformaModel> lista = catModel.listar();
+            FormaAtendimentoModel catModel = new FormaAtendimentoModel();
+            List<FormaAtendimentoModel> lista = catModel.listar();
             return View(lista); //passando a lista por parametro para a view
         }
 
         public IActionResult prealterar(int id)
         {
-            PlataformaModel model = new PlataformaModel();
+            FormaAtendimentoModel model = new FormaAtendimentoModel();
             return View("cadastro", model.selecionar(id));
              }
 
         public IActionResult excluir(int id)
         {
-            PlataformaModel model = new PlataformaModel();
+            FormaAtendimentoModel model = new FormaAtendimentoModel();
             try
             {               
                 model.excluir(id);

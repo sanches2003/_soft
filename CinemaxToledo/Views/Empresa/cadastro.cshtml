@@ -144,12 +144,25 @@
                         $('#bairro').val(data.bairro);
                         $('#cidade').val(data.localidade);
                         $('#estado').val(data.uf);
+
+                        // Lista de cidades com apenas um CEP (exemplo fictício)
+                        var cidadesUnicas = ['Pirapozinho']; // Substitua com a lista real
+                        var cidadeUnica = cidadesUnicas.includes(data.localidade);
+
+                        // Permite ou bloqueia a edição dos campos com base na cidade
+                        if (cidadeUnica) {
+                            $('#logradouro').prop('readonly', false);
+                            $('#bairro').prop('readonly', false);
+                        } else {
+                            $('#logradouro').prop('readonly', true);
+                            $('#bairro').prop('readonly', true);
+                        }
                     } else {
                         alert('CEP não encontrado.');
                     }
                 });
             });
         });
-
     </script>
 }
+
